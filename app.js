@@ -21,7 +21,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function(req, res) {
   'use strict';
 
-  res.sendFile('./src/index.html', {root: __dirname});
+  res.sendFile('./client/index.html', {root: __dirname});
 });
 
 // catch 404 and forward to error handler

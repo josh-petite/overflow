@@ -22,7 +22,7 @@ function dashboardRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('dashboard', {
       url: '/',
-      templateUrl: 'src/app/modules/dashboard/dashboard.html',
+      templateUrl: 'client/app/modules/dashboard/dashboard.html',
       controller: 'dashboardController as vm'
     });
 

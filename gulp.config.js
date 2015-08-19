@@ -10,15 +10,15 @@ module.exports = function() {
     ],
     outputTarget: src + '**/*.*',
     source: [
-      './src/app/overflow.module.js',
-      './src/app/modules/core/core.module.js',
-      './src/app/modules/dashboard/dashboard.module.js',
-      './src/app/modules/character/character.module.js',
-      './src/app/modules/core/**/*.js',
-      './src/app/modules/dashboard/**/*.js',
-      './src/app/modules/character/**/*.js'
+      './client/app/overflow.module.js',
+      './client/app/modules/core/core.module.js',
+      './client/app/modules/dashboard/dashboard.module.js',
+      './client/app/modules/character/character.module.js',
+      './client/app/modules/core/**/*.js',
+      './client/app/modules/dashboard/**/*.js',
+      './client/app/modules/character/**/*.js'
     ],
-    less: './src/**/*.less',
+    less: './client/**/*.less',
     libraries: [
       './node_modules/jquery/dist/jquery.min.js',
       './node_modules/jquery/dist/jquery.min.map',

@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
 gulp.task('default', ['clean', 'styles', 'build', 'templates', 'libraries', 'start']);
 
 gulp.task('templates', function() {
-  gulp.src(['!./src/index.html', './src/**/*.html'])
+  gulp.src(['!./client/index.html', './client/**/*.html'])
     .pipe($.html2js({
       outputModuleName: 'overflow.templates',
       useStrict: true
@@ -18,9 +18,9 @@ gulp.task('templates', function() {
 });
 
 //gulp.task('inject', ['build', 'templates', 'libraries'], function () {
-//  var target = gulp.src('./src/index.html');
+//  var target = gulp.client('./client/index.html');
 //
-//  var javascriptSources = gulp.src([
+//  var javascriptSources = gulp.client([
 //    './public/js/lib/jquery.min.js',
 //    './public/js/lib/bootstrap.min.js',
 //    './public/js/lib/angular.min.js',
@@ -28,7 +28,7 @@ gulp.task('templates', function() {
 //    './public/js/app.js',
 //    './public/js/templates.js'], {read: false});
 //
-//  var styleSources = gulp.src('./public/styles/*.css', {read: false});
+//  var styleSources = gulp.client('./public/styles/*.css', {read: false});
 //
 //  return target
 //    .pipe($.inject(javascriptSources), {relative: true})
