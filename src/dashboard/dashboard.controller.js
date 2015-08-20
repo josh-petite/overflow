@@ -3,7 +3,7 @@
  */
 
 angular.module('overflow.dashboard')
-  .controller('dashboardController', dashboardController);
+  .controller('DashboardController', dashboardController);
 
 /* @ngInject */
 function dashboardController() {

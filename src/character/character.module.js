@@ -19,8 +19,8 @@ function characterRoutes($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('character', {
       url: '/character',
-      templateUrl: 'client/app/modules/character/character.html',
-      controller: 'characterController as vm'
+      templateUrl: 'src/character/character.html',
+      controller: 'CharacterController as vm'
     });
 
   $urlRouterProvider.otherwise('/');

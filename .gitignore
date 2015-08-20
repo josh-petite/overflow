@@ -6,5 +6,5 @@ tmp
 .DS_Store
 .idea
 out/
-.tmp/
-public/
+public/js
+public/styles

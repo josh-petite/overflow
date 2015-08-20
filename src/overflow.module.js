@@ -14,7 +14,7 @@ angular.module('overflow', [
   'overflow.dashboard'
 ]);
 
-angular.module('overflow').controller('mainController', mainController);
+angular.module('overflow').controller('MainController', mainController);
 
 /* @ngInject */
 function mainController($scope) {

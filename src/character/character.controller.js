@@ -2,11 +2,17 @@
  * Created by Josh on 7/6/15.
  */
 
+/**
+ * @ngdoc controller
+ * @name CharacterController
+ * @module overflow.character
+ * @description Character dashboard controller
+ **/
 angular.module('overflow.character')
-  .controller('characterController', characterController);
+  .controller('CharacterController', characterController);
 
 /* @ngInject */
-function characterController() {
+function characterController($log, CharacterService) {
   'use strict';
 
   /*jshint validthis: true */
@@ -21,23 +27,23 @@ function characterController() {
   /////////////////////////////////////////////////////////////////////////////
 
   function init() {
-    var character = getCharacter();
-
-    vm.name = 'Name: ' + character.name;
-    vm.level = 'Level: ' + character.level;
-    vm.job = 'Job: ' + character.job;
-    vm.hp = 'HP: ' + character.hitPoints;
+    getCharacter();
 
     vm.items = getItems();
   }
 
   function getCharacter() {
-    return {
-      name: 'Josh',
-      level: 3,
-      hitPoints: 10,
-      job: 'Mercenary'
-    };
+    var promise = CharacterService.getById(1);
+
+    promise.then(characterRetrievalSucceeded, characterRetrievalFailed);
+
+    function characterRetrievalSucceeded(character) {
+      vm.character = character;
+    }
+
+    function characterRetrievalFailed(error) {
+        $log.error(error);
+    }
   }
 
   function getItems() {

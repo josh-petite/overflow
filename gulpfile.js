@@ -5,10 +5,10 @@ var del = require('del');
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
-gulp.task('default', ['clean', 'styles', 'build', 'templates', 'libraries', 'start']);
+gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'start']);
 
 gulp.task('templates', function() {
-  gulp.src(['!./client/index.html', './client/**/*.html'])
+  gulp.src(['!./src/index.html', './src/**/*.html'])
     .pipe($.html2js({
       outputModuleName: 'overflow.templates',
       useStrict: true
@@ -16,25 +16,6 @@ gulp.task('templates', function() {
     .pipe($.concat('templates.js'))
     .pipe(gulp.dest('./public/js'))
 });
-
-//gulp.task('inject', ['build', 'templates', 'libraries'], function () {
-//  var target = gulp.client('./client/index.html');
-//
-//  var javascriptSources = gulp.client([
-//    './public/js/lib/jquery.min.js',
-//    './public/js/lib/bootstrap.min.js',
-//    './public/js/lib/angular.min.js',
-//    './public/js/lib/angular-ui-router.min.js',
-//    './public/js/app.js',
-//    './public/js/templates.js'], {read: false});
-//
-//  var styleSources = gulp.client('./public/styles/*.css', {read: false});
-//
-//  return target
-//    .pipe($.inject(javascriptSources), {relative: true})
-//    .pipe($.inject(styleSources), {relative: true})
-//    .pipe(gulp.dest('./public'));
-//});
 
 gulp.task('build', function () {
   'use strict';
@@ -50,9 +31,9 @@ gulp.task('start', function () {
   'use strict';
 
   $.nodemon({
-    script: 'server.js',
+    script: './server/server.js',
     ext: 'js html',
-    ignore: ['gulpfile.js', 'gulp.config.js', 'server.js'],
+    ignore: ['gulpfile.js', 'gulp.config.js'],
     env: {'NODE_ENV': 'development'}//,
     //tasks: ['vet']
   })
@@ -116,12 +97,6 @@ gulp.task('clean-styles', function (done) {
   var files = config.styleDestination + '**/*.css';
   clean(files, done);
 });
-
-//gulp.task('less-watcher', function () {
-//  'use strict';
-//
-//  gulp.watch([config.less], ['styles']);
-//});
 
 ///////////////////////////////////////////////////////////////////////////////
 
