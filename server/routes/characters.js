@@ -15,7 +15,11 @@ router.use(function timeLog(req, res, next) {
 router.get('/:id', function (req, res) {
   var id = req.params.id;
 
-  if (id === 1) {
+  console.log(id);
+
+  if (id == 1) {
+    console.log('in /characters/:id');
+
     res.send({
       name: 'Marcant',
       level: 1,
