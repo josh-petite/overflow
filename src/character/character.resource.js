@@ -10,11 +10,11 @@
  **/
 
 angular.module('overflow.character')
-  .factory('CharacterResource', characterResource);
+    .factory('CharacterResource', characterResource);
 
 /* @ngInject */
 function characterResource($resource) {
-  'use strict';
+    'use strict';
 
-  return $resource('/api/v1/characters/:id', {id: '@id'});
+    return $resource('/api/v1/characters/:id', {id: '@id'});
 }

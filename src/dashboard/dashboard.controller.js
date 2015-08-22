@@ -3,20 +3,20 @@
  */
 
 angular.module('overflow.dashboard')
-  .controller('DashboardController', dashboardController);
+    .controller('DashboardController', dashboardController);
 
 /* @ngInject */
 function dashboardController() {
-  'use strict';
+    'use strict';
 
-  /*jshint validthis: true */
-  var vm = this;
-  vm.greeting = 'hello from dashboard controller!';
+    /*jshint validthis: true */
+    var vm = this;
+    vm.greeting = 'hello from dashboard controller!';
 
-  activate();
+    activate();
 
-  function activate() {
-  }
+    function activate() {
+    }
 
-  /////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////
 }
