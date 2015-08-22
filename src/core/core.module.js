@@ -10,7 +10,9 @@
  *              Global directives and services will also be found here.
  **/
 angular.module('overflow.core', [
-  'ngResource',
-  'ui.router',
-  'overflow.templates'
+    'ngResource',
+    'ngAnimate',
+    'toastr',
+    'ui.router',
+    'overflow.templates'
 ]);

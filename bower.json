@@ -1,0 +1,26 @@
+{
+  "name": "overflow",
+  "version": "0.0.0",
+  "homepage": "https://github.com/josh28/overflow",
+  "authors": [
+    "Josh Petite <josh.petite@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "~1.4.4",
+    "angular-toastr": "~1.4.1",
+    "angular": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "angular-animate": "~1.4.4"
+  }
+}

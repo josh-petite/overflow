@@ -9,22 +9,22 @@
  * @description Primary module for dashboard
  **/
 angular.module('overflow.dashboard', [
-  'overflow.core',
-  'overflow.character'
+    'overflow.core',
+    'overflow.character'
 ]);
 
 angular.module('overflow.dashboard').config(dashboardRoutes);
 
 /* @ngInject */
 function dashboardRoutes($stateProvider, $urlRouterProvider) {
-  'use strict';
+    'use strict';
 
-  $stateProvider
-    .state('dashboard', {
-      url: '/',
-      templateUrl: 'src/dashboard/dashboard.html',
-      controller: 'DashboardController as vm'
-    });
+    $stateProvider
+        .state('dashboard', {
+            url: '/',
+            templateUrl: 'src/dashboard/dashboard.html',
+            controller: 'DashboardController as vm'
+        });
 
-  $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/');
 }
