@@ -12,7 +12,7 @@ angular.module('overflow.character')
   .controller('CharacterController', characterController);
 
 /* @ngInject */
-function characterController($log, CharacterService) {
+function characterController($log, CharacterResource) {
   'use strict';
 
   /*jshint validthis: true */
@@ -21,28 +21,21 @@ function characterController($log, CharacterService) {
   activate();
 
   function activate() {
-    init();
+    getCharacter();
+    vm.items = getItems();
   }
 
   /////////////////////////////////////////////////////////////////////////////
 
-  function init() {
-    getCharacter();
-
-    vm.items = getItems();
-  }
-
   function getCharacter() {
-    var promise = CharacterService.getById(1);
-
-    promise.then(characterRetrievalSucceeded, characterRetrievalFailed);
+    CharacterResource.get({id: 1}, characterRetrievalSucceeded, characterRetrievalFailed);
 
     function characterRetrievalSucceeded(character) {
       vm.character = character;
     }
 
     function characterRetrievalFailed(error) {
-        $log.error(error);
+      $log.error(error);
     }
   }
 

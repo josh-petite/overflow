@@ -2,8 +2,16 @@ var gulp = require('gulp');
 var args = require('yargs').argv;
 var config = require('./gulp.config')();
 var del = require('del');
+var Server = require('karma').Server;
 
 var $ = require('gulp-load-plugins')({lazy: true});
+
+gulp.task('test', ['templates'], function (done) {
+  new Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
 
 gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'start']);
 
@@ -33,7 +41,7 @@ gulp.task('start', function () {
   $.nodemon({
     script: './server/server.js',
     ext: 'js html',
-    ignore: ['gulpfile.js', 'gulp.config.js'],
+    ignore: ['gulpfile.js', 'gulp.config.js', 'node_modules/**/*.js'],
     env: {'NODE_ENV': 'development'}//,
     //tasks: ['vet']
   })
