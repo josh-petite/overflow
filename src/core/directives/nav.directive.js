@@ -9,6 +9,6 @@ angular.module('overflow.core').directive('nav', [function() {
     restrict: 'A',
     scope: {
     },
-    templateUrl: 'src/app/modules/core/directives/templates/nav.html'
+    templateUrl: 'src/core/directives/templates/nav.html'
   };
 }]);
