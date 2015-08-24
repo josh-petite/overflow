@@ -1,9 +1,5 @@
-/**
- * Created by Josh on 8/21/15.
- */
-
 (function () {
-    "use strict";
+    'use strict';
 
     describe('CharacterController', function () {
         beforeEach(angular.mock.module('overflow.templates'));

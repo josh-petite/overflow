@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = function() {
     'use strict';
 
     var src = './public/';
@@ -10,6 +10,8 @@ module.exports = function () {
             './bower_components/bootstrap/dist/css/bootstrap.css.map',
             './bower_components/angular-toastr/dist/angular-toastr.min.css'
         ],
+        jsTarget: src + 'js/*.*',
+        styleTarget: src + 'styles/*.*',
         outputTarget: src + '**/*.*',
         source: [
             './src/overflow.module.js',
@@ -21,6 +23,7 @@ module.exports = function () {
             './src/character/**/*.js'
         ],
         less: './src/**/*.less',
+        libraryDestination: src + 'js/lib/',
         libraries: [
             './bower_components/jquery/dist/jquery.js',
             './bower_components/jquery/dist/jquery.min.js',
@@ -36,7 +39,6 @@ module.exports = function () {
             './bower_components/angular-animate/angular-animate.js',
             './bower_components/angular-animate/angular-animate.min.js',
             './bower_components/angular-animate/angular-animate.min.js.map',
-            './bower_components/angular-toastr/dist/angular-toastr.min.js',
             './bower_components/angular-toastr/dist/angular-toastr.tpls.js'
         ]
     };

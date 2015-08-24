@@ -1,13 +1,22 @@
 /**
- * Created by Josh on 7/6/15.
- */
+ * @ngdoc directive
+ * @name nav
+ * @module overflow.core
+ * @description Directive to encapsulate the top nav bar
+ **/
 
-angular.module('overflow.core').directive('nav', [function () {
+(function() {
     'use strict';
 
-    return {
-        restrict: 'A',
-        scope: {},
-        templateUrl: 'src/core/directives/templates/nav.html'
-    };
-}]);
+    angular.module('overflow.core')
+        .directive('nav', nav);
+
+    /* ngInject */
+    function nav() {
+        return {
+            restrict: 'A',
+            scope: {},
+            templateUrl: 'src/core/directives/templates/nav.html'
+        };
+    }
+})();
