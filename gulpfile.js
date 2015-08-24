@@ -6,6 +6,8 @@ var Server = require('karma').Server;
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
+gulp.tasks('heroku:dev', ['default']);
+
 gulp.task('test', ['templates'], function (done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
