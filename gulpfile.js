@@ -41,7 +41,7 @@ gulp.task('start', function () {
     $.nodemon({
         script: './server/server.js',
         ext: 'js html',
-        ignore: ['gulpfile.js', 'gulp.config.js', 'node_modules/**/*.js', 'bower_components/**/*.js'],
+        ignore: ['gulpfile.js', 'gulp.config.js', 'node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
         env: {'NODE_ENV': 'development'},
         tasks: ['styles', 'build', 'templates', 'libraries', 'vet']
     })
