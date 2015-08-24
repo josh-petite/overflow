@@ -1,8 +1,4 @@
 /**
- * Created by Josh on 8/19/15.
- */
-
-/**
  * @ngdoc service
  * @name CharacterResource
  * @module overflow.character

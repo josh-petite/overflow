@@ -1,14 +1,10 @@
 /**
- * Created by Josh on 8/21/15.
- */
-
-/**
  * @ngdoc service
  * @name NotificationService
  * @module overflow.core
  * @description Primary module for displaying toast user feedback notifications
  **/
-(function () {
+(function() {
     'use strict';
 
     angular.module('overflow.core')

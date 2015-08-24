@@ -8,7 +8,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('heroku:dev', ['styles', 'build', 'templates', 'libraries']);
 
-gulp.task('test', ['templates'], function (done) {
+gulp.task('test', ['templates'], function(done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
@@ -17,7 +17,9 @@ gulp.task('test', ['templates'], function (done) {
 
 gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'start']);
 
-gulp.task('templates', function () {
+gulp.task('templates', function() {
+    log('Compiling templates and saving to public...');
+
     gulp.src(['./src/**/*.html'])
         .pipe($.html2js({
             outputModuleName: 'overflow.templates',
@@ -27,8 +29,10 @@ gulp.task('templates', function () {
         .pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('build', function () {
+gulp.task('build', function() {
     'use strict';
+
+    log('Compiling all JS to app.js and saving to public...');
 
     return gulp
         .src(config.source)
@@ -37,7 +41,7 @@ gulp.task('build', function () {
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('start', function () {
+gulp.task('start', function() {
     'use strict';
 
     $.nodemon({
@@ -47,25 +51,27 @@ gulp.task('start', function () {
         env: {'NODE_ENV': 'development'},
         tasks: ['styles', 'build', 'templates', 'libraries', 'vet']
     })
-        .on('restart', function () {
-            log('Restarted nodemon!');
-        });
+    .on('restart', function() {
+        log('Restarted nodemon!');
+    });
 });
 
-gulp.task('clean', function (done) {
+gulp.task('clean', function(done) {
     'use strict';
 
     clean(config.outputTarget, done);
 });
 
-gulp.task('libraries', function () {
+gulp.task('libraries', function() {
     'use strict';
 
+    log('Copying libraries to public...')
+
     return gulp.src(config.libraries)
-        .pipe(gulp.dest('./public/js/lib'));
+        .pipe(gulp.dest(config.libraryDestination));
 });
 
-gulp.task('vet', function () {
+gulp.task('vet', function() {
     'use strict';
 
     log('Analyzing source with JSHint and JSCS...');
@@ -80,7 +86,7 @@ gulp.task('vet', function () {
 });
 
 
-gulp.task('styles', ['style-libraries'], function () {
+gulp.task('styles', ['style-libraries'], function() {
     'use strict';
 
     log('Compiling LESS -> CSS...');
@@ -94,14 +100,14 @@ gulp.task('styles', ['style-libraries'], function () {
         .pipe(gulp.dest(config.styleDestination));
 });
 
-gulp.task('style-libraries', function () {
+gulp.task('style-libraries', function() {
     'use strict';
 
     return gulp.src(config.styleLibraries)
         .pipe(gulp.dest(config.styleDestination));
 });
 
-gulp.task('clean-styles', function (done) {
+gulp.task('clean-styles', function(done) {
     'use strict';
 
     var files = config.styleDestination + '**/*.css';

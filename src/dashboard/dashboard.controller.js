@@ -1,22 +1,27 @@
 /**
- * Created by Josh on 7/5/15.
- */
+ * @ngdoc controller
+ * @name DashboardController
+ * @module overflow.dashboard
+ * @description Main dashboard controller
+ **/
 
-angular.module('overflow.dashboard')
-    .controller('DashboardController', dashboardController);
-
-/* @ngInject */
-function dashboardController() {
+(function() {
     'use strict';
 
-    /*jshint validthis: true */
-    var vm = this;
-    vm.greeting = 'hello from dashboard controller!';
+    angular.module('overflow.dashboard')
+        .controller('DashboardController', dashboardController);
 
-    activate();
+    /* @ngInject */
+    function dashboardController() {
+        /*jshint validthis: true */
+        var vm = this;
+        vm.greeting = 'hello from dashboard controller!';
 
-    function activate() {
+        activate();
+
+        function activate() {
+        }
+
+        /////////////////////////////////////////////////////////////////////////////
     }
-
-    /////////////////////////////////////////////////////////////////////////////
-}
+})();
