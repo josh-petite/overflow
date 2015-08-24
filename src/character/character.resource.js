@@ -5,12 +5,14 @@
  * @description Character service for retrieving metadata around one or many characters
  **/
 
-angular.module('overflow.character')
-    .factory('CharacterResource', characterResource);
-
-/* @ngInject */
-function characterResource($resource) {
+(function() {
     'use strict';
 
-    return $resource('/api/v1/characters/:id', {id: '@id'});
-}
+    angular.module('overflow.character')
+        .factory('CharacterResource', characterResource);
+
+    /* @ngInject */
+    function characterResource($resource) {
+        return $resource('/api/v1/characters/:id', {id: '@id'});
+    }
+})();

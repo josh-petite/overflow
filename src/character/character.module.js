@@ -10,7 +10,8 @@
 
     angular.module('overflow.character', ['overflow.core']);
 
-    angular.module('overflow.character').config(characterRoutes);
+    angular.module('overflow.character')
+        .config(characterRoutes);
 
     /* @ngInject */
     function characterRoutes($stateProvider, $urlRouterProvider) {

@@ -29,7 +29,7 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('build', function() {
+gulp.task('build', ['clean'], function() {
     'use strict';
 
     log('Compiling all JS to app.js and saving to public...');
@@ -46,20 +46,28 @@ gulp.task('start', function() {
 
     $.nodemon({
         script: './server/server.js',
-        ext: 'js html',
+        ext: 'js html less',
         ignore: ['gulpfile.js', 'gulp.config.js', 'node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
         env: {'NODE_ENV': 'development'},
         tasks: ['styles', 'build', 'templates', 'libraries', 'vet']
     })
-    .on('restart', function() {
-        log('Restarted nodemon!');
-    });
+        .on('restart', function() {
+            log('Restarted nodemon!');
+        });
 });
 
-gulp.task('clean', function(done) {
+gulp.task('clean', ['clean-scripts', 'clean-styles']);
+
+gulp.task('clean-scripts', function(done) {
     'use strict';
 
-    clean(config.outputTarget, done);
+    clean(config.jsTarget, done);
+});
+
+gulp.task('clean-styles', function(done) {
+    'use strict';
+
+    clean(config.styleTarget, done);
 });
 
 gulp.task('libraries', function() {
