@@ -16,11 +16,16 @@
 
     function notificationService(toastr) {
         return {
+            clearNotifications: clearNotifications,
             success: success,
             info: info,
             warning: warning,
             error: error
         };
+
+        function clearNotifications() {
+            toastr.clear();
+        }
 
         function success(message, options) {
             options = options || {};

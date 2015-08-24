@@ -10,19 +10,19 @@
  *              for handing global eventing.
  **/
 angular.module('overflow', [
-  'overflow.core',
-  'overflow.dashboard'
+    'overflow.core',
+    'overflow.dashboard'
 ]);
 
 angular.module('overflow').controller('MainController', mainController);
 
 /* @ngInject */
-function mainController($scope) {
-  'use strict';
+function mainController($scope, NotificationService) {
+    'use strict';
 
-  $scope.$on('$stateChangeStart', handleStateChangeStart);
+    $scope.$on('$stateChangeStart', handleStateChangeStart);
 
-  function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
-    console.log(fromParams);
-  }
+    function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
+        NotificationService.clearNotifications();
+    }
 }

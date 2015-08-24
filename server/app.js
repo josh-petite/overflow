@@ -21,12 +21,6 @@ router.use('/characters', require('./routes/characters'));
 
 app.use('/api/v1', router);
 
-//app.use(function (req, res) {
-//  'use strict';
-//
-//  res.sendFile(path.resolve('public/index.html'));
-//});
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   'use strict';
