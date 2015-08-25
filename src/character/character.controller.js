@@ -26,16 +26,19 @@
         /////////////////////////////////////////////////////////////////////////////
 
         function getCharacter() {
+            vm.loadingCharacter = true;
             CharacterResource.get({id: 1}, characterRetrievalSucceeded, characterRetrievalFailed);
 
             function characterRetrievalSucceeded(character) {
                 vm.character = character;
                 NotificationService.success('Character load succeeded!');
+                vm.loadingCharacter = false;
             }
 
             function characterRetrievalFailed(error) {
                 $log.error(error);
                 NotificationService.error('Character load failed!');
+                vm.loadingCharacter = false;
             }
         }
 

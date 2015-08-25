@@ -8,7 +8,8 @@ module.exports = function() {
         styleLibraries: [
             './bower_components/bootstrap/dist/css/bootstrap.css',
             './bower_components/bootstrap/dist/css/bootstrap.css.map',
-            './bower_components/angular-toastr/dist/angular-toastr.min.css'
+            './bower_components/angular-toastr/dist/angular-toastr.min.css',
+            './bower_components/spinkit/css/spinners/7-three-bounce.css'
         ],
         jsTarget: src + 'js/*.*',
         styleTarget: src + 'styles/*.*',
