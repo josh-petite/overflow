@@ -18,9 +18,7 @@
         .controller('MainController', mainController);
 
     /* @ngInject */
-    function mainController($scope, NotificationService) {
-        $scope.$on('$stateChangeStart', handleStateChangeStart);
-
+    function mainController(NotificationService) {
         /*jshint unused:false */
         function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
             NotificationService.clearNotifications();

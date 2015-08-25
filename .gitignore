@@ -8,3 +8,4 @@ tmp
 out/
 public/js
 public/styles
+*.orig

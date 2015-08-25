@@ -12,6 +12,10 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
+
+var db = 'postgres://voksiwgkmieraq:uqpa5tBRBYQkoZZaCodIe7oq81@ec2-54-227-255-240.compute-1.amazonaws.com:5432/d9798pd02ordli?ssl=true';
+process.env.DATABASE_URL = db;
+
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 

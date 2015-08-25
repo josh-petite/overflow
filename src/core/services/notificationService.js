@@ -4,7 +4,6 @@
  * @module overflow.core
  * @description Primary module for displaying toast user feedback notifications
  **/
-
 (function() {
     'use strict';
 
