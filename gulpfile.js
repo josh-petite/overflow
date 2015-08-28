@@ -3,6 +3,8 @@ var args = require('yargs').argv;
 var config = require('./gulp.config')();
 var del = require('del');
 var Server = require('karma').Server;
+var csswring = require('csswring');
+var autoprefixer = require('autoprefixer');
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
@@ -99,12 +101,17 @@ gulp.task('styles', ['style-libraries'], function() {
 
     log('Compiling LESS -> CSS...');
 
+    var processors = [
+        autoprefixer({browsers: ['last 2 version', '> 5%']}),
+        csswring
+    ];
+
     return gulp
         .src(config.less)
         .pipe($.plumber())
         .pipe($.less())
-        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
         .pipe($.concat('overflow.css'))
+        .pipe($.postcss(processors))
         .pipe(gulp.dest(config.styleDestination));
 });
 

@@ -32,20 +32,20 @@
         function info(message, options) {
             options = options || {};
             options.progressBar = true;
-            toastr.success(message, 'Info', options);
+            toastr.info(message, 'Info', options);
         }
 
         function warning(message, options) {
             options = options || {};
             options.progressBar = true;
-            toastr.success(message, 'Warning', options);
+            toastr.warning(message, 'Warning', options);
         }
 
         function error(message, options) {
             options = options || {};
             options.closeButton = true;
             options.timeOut = 0;
-            toastr.success(message, 'Error', options);
+            toastr.error(message, 'Error', options);
         }
     }
 })();
