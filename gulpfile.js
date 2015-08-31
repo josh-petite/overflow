@@ -6,20 +6,25 @@ var Server = require('karma').Server;
 var csswring = require('csswring');
 var autoprefixer = require('autoprefixer');
 
-var $ = require('gulp-load-plugins')({lazy: true});
+var $ = require('gulp-load-plugins')({ lazy: true });
 
 gulp.task('heroku:dev', ['styles', 'build', 'templates', 'libraries']);
 
-gulp.task('test', ['templates'], function(done) {
+gulp.task('test', ['templates'], function (done) {
     new Server({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true
     }, done).start();
 });
 
-gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'start']);
+gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'nodemon', 'app']);
 
-gulp.task('templates', function() {
+gulp.task('app', function () {
+    gulp.src('')
+        .pipe($.open({ app: 'firefox', uri: 'http://localhost:3000' }));
+});
+
+gulp.task('templates', function () {
     log('Compiling templates and saving to public...');
 
     gulp.src(['./src/**/*.html'])
@@ -31,7 +36,7 @@ gulp.task('templates', function() {
         .pipe(gulp.dest('./public/js'))
 });
 
-gulp.task('build', ['clean'], function() {
+gulp.task('build', ['clean'], function () {
     'use strict';
 
     log('Compiling all JS to app.js and saving to public...');
@@ -43,45 +48,45 @@ gulp.task('build', ['clean'], function() {
         .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('start', function() {
+gulp.task('nodemon', function () {
     'use strict';
 
     $.nodemon({
         script: './server/server.js',
         ext: 'js html less',
-        ignore: ['gulpfile.js', 'gulp.config.js', 'node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
-        env: {'NODE_ENV': 'development'},
+        ignore: ['node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
+        env: { 'NODE_ENV': 'development' },
         tasks: ['styles', 'build', 'templates', 'libraries', 'vet']
     })
-        .on('restart', function() {
-            log('Restarted nodemon!');
-        });
+    .on('restart', function () {
+        log('Restarted nodemon!');
+    });
 });
 
 gulp.task('clean', ['clean-scripts', 'clean-styles']);
 
-gulp.task('clean-scripts', function(done) {
+gulp.task('clean-scripts', function (done) {
     'use strict';
 
     clean(config.jsTarget, done);
 });
 
-gulp.task('clean-styles', function(done) {
+gulp.task('clean-styles', function (done) {
     'use strict';
 
     clean(config.styleTarget, done);
 });
 
-gulp.task('libraries', function() {
+gulp.task('libraries', function () {
     'use strict';
 
-    log('Copying libraries to public...')
+    log('Copying libraries to public...');
 
     return gulp.src(config.libraries)
         .pipe(gulp.dest(config.libraryDestination));
 });
 
-gulp.task('vet', function() {
+gulp.task('vet', function () {
     'use strict';
 
     log('Analyzing source with JSHint and JSCS...');
@@ -91,18 +96,18 @@ gulp.task('vet', function() {
         .pipe($.if(args.verbose, $.print()))
         .pipe($.jscs())
         .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
+        .pipe($.jshint.reporter('jshint-stylish', { verbose: true }))
         .pipe($.jshint.reporter('fail'));
 });
 
 
-gulp.task('styles', ['style-libraries'], function() {
+gulp.task('styles', ['style-libraries'], function () {
     'use strict';
 
     log('Compiling LESS -> CSS...');
 
     var processors = [
-        autoprefixer({browsers: ['last 2 version', '> 5%']}),
+        autoprefixer({ browsers: ['last 2 version', '> 5%'] }),
         csswring
     ];
 
@@ -115,14 +120,14 @@ gulp.task('styles', ['style-libraries'], function() {
         .pipe(gulp.dest(config.styleDestination));
 });
 
-gulp.task('style-libraries', function() {
+gulp.task('style-libraries', function () {
     'use strict';
 
     return gulp.src(config.styleLibraries)
         .pipe(gulp.dest(config.styleDestination));
 });
 
-gulp.task('clean-styles', function(done) {
+gulp.task('clean-styles', function (done) {
     'use strict';
 
     var files = config.styleDestination + '**/*.css';
