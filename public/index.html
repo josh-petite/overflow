@@ -11,12 +11,10 @@
 </head>
 <body>
 
-<div class="container">
-    <div ng-app="overflow">
-        <div ng-controller="MainController as vm">
-            <div nav ng-hide="hideNav"></div>
-            <section ui-view></section>
-        </div>
+<div ng-app="overflow">
+    <div class="full-height" ng-controller="MainController">
+        <div nav></div>
+        <section class="full-height container-fluid" ui-view></section>
     </div>
 </div>
 
