@@ -13,7 +13,6 @@
 
     /* @ngInject */
     function mainController($rootScope, NotificationService) {
-
         activate();
 
         function activate() {

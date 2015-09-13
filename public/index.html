@@ -12,8 +12,8 @@
 <body>
 
 <div ng-app="overflow">
-    <div class="full-height" ng-controller="MainController">
-        <div nav></div>
+    <div class="full-height" ng-controller="MainController as vm">
+        <div nav ng-hide="hideNav"></div>
         <section class="full-height container-fluid" ui-view></section>
     </div>
 </div>
