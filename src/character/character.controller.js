@@ -12,7 +12,7 @@
         .controller('CharacterController', characterController);
 
     /* @ngInject */
-    function characterController($log, CharacterResource, NotificationService) {
+    function characterController($log, CharacterService, NotificationService) {
         /*jshint validthis: true */
         var vm = this;
 
@@ -27,7 +27,7 @@
 
         function getCharacter() {
             vm.loadingCharacter = true;
-            CharacterResource.get({id: 1}, characterRetrievalSucceeded, characterRetrievalFailed);
+            CharacterService.get({id: 1}, characterRetrievalSucceeded, characterRetrievalFailed);
 
             function characterRetrievalSucceeded(character) {
                 vm.character = character;

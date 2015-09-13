@@ -1,6 +1,6 @@
 /**
  * @ngdoc service
- * @name CharacterResource
+ * @name CharacterService
  * @module overflow.character
  * @description Character service for retrieving metadata around one or many characters
  **/
@@ -9,10 +9,10 @@
     'use strict';
 
     angular.module('overflow.character')
-        .factory('CharacterResource', characterResource);
+        .factory('CharacterService', characterService);
 
     /* @ngInject */
-    function characterResource($resource) {
+    function characterService($resource) {
         return $resource('/api/v1/characters/:id', {id: '@id'});
     }
 })();

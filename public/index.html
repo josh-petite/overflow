@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="styles/angular-toastr.min.css">
     <link rel="stylesheet" href="styles/7-three-bounce.css">
     <link rel="stylesheet" href="styles/overflow.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
 </head>
 <body>
 
 <div class="container">
     <div ng-app="overflow">
-        <div ng-controller="MainController">
-            <div nav></div>
+        <div ng-controller="MainController as vm">
+            <div nav ng-hide="hideNav"></div>
             <section ui-view></section>
         </div>
     </div>

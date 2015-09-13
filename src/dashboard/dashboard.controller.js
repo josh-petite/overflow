@@ -13,10 +13,6 @@
 
     /* @ngInject */
     function dashboardController() {
-        /*jshint validthis: true */
-        var vm = this;
-        vm.greeting = 'hello from dashboard controller!';
-
         activate();
 
         function activate() {

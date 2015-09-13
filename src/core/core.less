@@ -1,4 +1,23 @@
+@import "coreVariables";
+
 html body {
   width: 100%;
   height: 100%;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-size: 1.2em;
+  background-color: @dark-grey;
+  color: @white;
+}
+
+a {
+  color: @red;
+}
+
+.btn-primary {
+  background-color: @red;
+  border-color: @grey;
+
+  &:hover {
+    background-color: @dark-red;
+  }
 }

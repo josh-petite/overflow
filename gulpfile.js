@@ -15,7 +15,7 @@ gulp.task('test', ['templates'], function(done) {
     }, done).start();
 });
 
-gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'start']);
+gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'fonts', 'start']);
 
 gulp.task('templates', function() {
     log('Compiling templates and saving to public...');
@@ -39,6 +39,14 @@ gulp.task('build', ['clean'], function() {
         .pipe($.concat('app.js'))
         .pipe($.ngAnnotate())
         .pipe(gulp.dest('./public/js'));
+});
+
+gulp.task('fonts', function() {
+    'use strict';
+
+    return gulp
+        .src(config.fonts)
+        .pipe(gulp.dest('./public/fonts'));
 });
 
 gulp.task('start', function() {

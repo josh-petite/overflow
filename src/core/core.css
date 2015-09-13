@@ -1,4 +1,18 @@
 html body {
   width: 100%;
   height: 100%;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-size: 1.2em;
+  background-color: #474747;
+  color: #fefefe;
+}
+a {
+  color: #fd5353;
+}
+.btn-primary {
+  background-color: #fd5353;
+  border-color: #959595;
+}
+.btn-primary:hover {
+  background-color: #ad0303;
 }

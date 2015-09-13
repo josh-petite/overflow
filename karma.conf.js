@@ -2,6 +2,8 @@
 // Generated on Wed Aug 19 2015 22:25:04 GMT-0700 (PDT)
 
 module.exports = function (config) {
+    'use strict';
+
     config.set({
 
         // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -64,11 +66,11 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: ['Chrome'],
+        browsers: ['PhantomJS'],
 
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: false
-    })
+    });
 };

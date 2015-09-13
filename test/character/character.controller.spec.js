@@ -9,13 +9,13 @@
         var $log,
             $httpBackend,
             createController,
-            characterResource,
+            characterService,
             testCharacter;
 
-        beforeEach(inject(function (_$log_, _$controller_, _$httpBackend_, _CharacterResource_) {
+        beforeEach(inject(function (_$log_, _$controller_, _$httpBackend_, _CharacterService_) {
             $log = _$log_;
             $httpBackend = _$httpBackend_;
-            characterResource = _CharacterResource_;
+            characterService = _CharacterService_;
 
             createController = function () {
                 return _$controller_('CharacterController', {});
@@ -30,9 +30,9 @@
         }));
 
         it('should get the current users character when the controller is activated', function () {
-            spyOn(characterResource, 'get');
+            spyOn(characterService, 'get');
             createController();
-            expect(characterResource.get).toHaveBeenCalled();
+            expect(characterService.get).toHaveBeenCalled();
         });
     });
 })();

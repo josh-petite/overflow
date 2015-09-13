@@ -11,17 +11,7 @@
 
     angular.module('overflow', [
         'overflow.core',
+        'overflow.login',
         'overflow.dashboard'
     ]);
-
-    angular.module('overflow')
-        .controller('MainController', mainController);
-
-    /* @ngInject */
-    function mainController(NotificationService) {
-        /*jshint unused:false */
-        function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
-            NotificationService.clearNotifications();
-        }
-    }
 })();

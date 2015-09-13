@@ -4,22 +4,27 @@ module.exports = function() {
     var src = './public/';
 
     var config = {
+        fonts: './bower_components/fontawesome/fonts/*.*',
         styleDestination: src + 'styles/',
         styleLibraries: [
             './bower_components/bootstrap/dist/css/bootstrap.css',
             './bower_components/bootstrap/dist/css/bootstrap.css.map',
             './bower_components/angular-toastr/dist/angular-toastr.min.css',
-            './bower_components/spinkit/css/spinners/7-three-bounce.css'
+            './bower_components/spinkit/css/spinners/7-three-bounce.css',
+            './bower_components/fontawesome/css/font-awesome.min.css'
         ],
         jsTarget: src + 'js/*.*',
         styleTarget: src + 'styles/*.*',
         outputTarget: src + '**/*.*',
         source: [
             './src/overflow.module.js',
+            './src/main.controller.js',
             './src/core/core.module.js',
+            './src/login/login.module.js',
             './src/dashboard/dashboard.module.js',
             './src/character/character.module.js',
             './src/core/**/*.js',
+            './src/login/**/*.js',
             './src/dashboard/**/*.js',
             './src/character/**/*.js'
         ],

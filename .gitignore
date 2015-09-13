@@ -8,4 +8,5 @@ tmp
 out/
 public/js
 public/styles
+public/fonts
 *.orig
