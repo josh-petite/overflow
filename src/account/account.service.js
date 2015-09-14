@@ -12,9 +12,7 @@
         .factory('AccountService', accountService);
 
     function accountService($resource, $q, $log) {
-        /*jshint validthis: true */
-        var vm = this;
-        vm.resource = $resource('/api/v1/account/:id', {id: '@id'});
+        var resource = $resource('/api/v1/account/:id', {id: '@id'});
 
         return {
             create: create
@@ -25,7 +23,7 @@
         function create(newAccount) {
             var deferred = $q.defer();
 
-            vm.resource.save(null, newAccount)
+            resource.save(null, newAccount)
                 .$promise
                 .then(accountCreationSuccessful, accountCreationFailed);
 

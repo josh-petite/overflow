@@ -26,23 +26,4 @@
 
         $urlRouterProvider.otherwise('/');
     }
-
-    //http://angular-formly.com/#/example/advanced/validators
-    angular.module('overflow.account')
-        .run(constructValidationMessages);
-
-    /* @ngInject */
-    function constructValidationMessages(formlyConfig, formlyValidationMessages) {
-        formlyConfig.setWrapper({
-            name: 'validation',
-            types: ['input'],
-            templateUrl: 'validation-messages.html'
-        });
-
-        formlyValidationMessages.addTemplateOptionValueMessage('maxlength', 'maxlength', '', 'is the maximum length', 'Too long');
-        formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'is the minimum length', 'Too short');
-        formlyValidationMessages.messages.required = 'to.label + " is required"';
-        formlyValidationMessages.messages.email = '$viewValue + " is not a valid email address"';
-        formlyValidationMessages.messages.passwordConfirmation = 'test';
-    }
 })();

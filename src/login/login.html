@@ -1,53 +1,19 @@
-<div ng-cloak>
+<div class="login-container form-default col-md-4 col-md-offset-4" ng-cloak>
+    <form name="vm.loginForm" ng-submit="vm.performLogin()" novalidate>
+        <h2>Login</h2>
+
+        <formly-form model="vm.model" fields="vm.fields" options="vm.options">
+            <button type="button" class="btn btn-primary">Login</button>
+        </formly-form>
+    </form>
+</div>
+
+<div class="col-md-offset-4 col-md-4">
     <div class="row">
-        <div class="col-lg-offset-4 col-lg-4 login-container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h3>Overflow</h3>
-                </div>
-            </div>
-
-            <hr>
-
-            <div class="row input">
-                <div class="col-lg-offset-3 col-lg-6">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                        <input type="text" id="username" name="username" placeholder="Username" ng-model="vm.username" class="form-control" autofocus>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row input">
-                <div class="col-lg-offset-3 col-lg-6">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-key"></i></div>
-                        <input type="password" id="password" name="password" placeholder="Password" ng-model="vm.password" class="form-control">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row input">
-                <div class="col-lg-offset-3 col-lg-6">
-                    <input type="checkbox" ng-model="vm.rememberMe"> Remember Me
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-offset-5 col-lg-2">
-                    <button type="button" class="btn btn-primary full-width" ng-click="vm.performLogin()">Login</button>
-                </div>
-            </div>
-        </div>
+        <a ui-sref="createAccount">Create an account </a><i class="fa fa-angle-double-right"></i>
     </div>
 
-    <div class="col-lg-offset-4 col-lg-4">
-        <div class="row">
-            <a ui-sref="createAccount">Create an account </a><i class="fa fa-angle-double-right"></i>
-        </div>
-
-        <div class="row">
-            <a ui-sref="recoverPassword">Forgot your password </a><i class="fa fa-angle-double-right"></i>
-        </div>
+    <div class="row">
+        <a ui-sref="recoverPassword">Forgot your password </a><i class="fa fa-angle-double-right"></i>
     </div>
 </div>

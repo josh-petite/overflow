@@ -9,7 +9,8 @@
     'use strict';
 
     angular.module('overflow.login', [
-        'overflow.core']);
+        'overflow.core'
+    ]);
 
     angular.module('overflow.login')
         .config(loginRoutes);

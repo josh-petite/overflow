@@ -13,9 +13,7 @@
 
     /* @ngInject */
     function loginService($resource, $q, $log) {
-        /*jshint validthis: true */
-        var vm = this;
-        vm.resource = $resource('/api/v1/login', null, {login: {method: 'POST'}});
+        var resource = $resource('/api/v1/login', null, {login: {method: 'POST'}});
 
         return {
             performLogin: performLogin
@@ -24,7 +22,7 @@
         function performLogin(credentials) {
             var deferred = $q.defer();
 
-            vm.resource.login(null, credentials)
+            resource.login(null, credentials)
                 .$promise
                 .then(loginSuccessful, loginError);
 

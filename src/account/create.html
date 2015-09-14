@@ -1,5 +1,5 @@
-<div class="create-account-form col-md-4 col-md-offset-4">
-    <form name="vm.accountForm" ng-submit="vm.handleSubmit()" novalidate>
+<div class="create-account-container form-default col-md-4 col-md-offset-4">
+    <form name="vm.accountForm" ng-submit="vm.performCreation()" novalidate>
         <h2>New Account</h2>
 
         <formly-form model="vm.model" fields="vm.fields" options="vm.options">
@@ -8,13 +8,3 @@
         </formly-form>
     </form>
 </div>
-
-<!-- Put custom templates here -->
-<script type="text/ng-template" id="validation-messages.html">
-    <formly-transclude></formly-transclude>
-    <div class="my-messages" ng-messages="fc.$error" ng-if="options.formControl.$touched">
-        <div class="some-message" ng-message="{{::name}}" ng-repeat="(name, message) in ::options.validation.messages">
-            {{message(fc.$viewValue, fc.$modelValue, this)}}
-        </div>
-    </div>
-</script>

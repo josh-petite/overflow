@@ -18,7 +18,7 @@
         vm.model = {};
         vm.options = {};
 
-        vm.handleSubmit = handleSubmit;
+        vm.performCreation = performCreation;
 
         activate();
 
@@ -88,7 +88,7 @@
             ];
         }
 
-        function handleSubmit() {
+        function performCreation() {
             var promise = AccountService.create(vm.model);
             promise.then(creationSuccessful, creationFailed);
 
