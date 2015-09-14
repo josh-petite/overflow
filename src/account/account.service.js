@@ -27,8 +27,7 @@
 
             vm.resource.save(null, newAccount)
                 .$promise
-                .success(accountCreationSuccessful)
-                .error(accountCreationFailed);
+                .then(accountCreationSuccessful, accountCreationFailed);
 
             function accountCreationSuccessful(data) {
                 deferred.resolve(data);
@@ -38,6 +37,8 @@
                 $log.error(error);
                 deferred.reject(error);
             }
+
+            return deferred.promise;
         }
     }
 })();

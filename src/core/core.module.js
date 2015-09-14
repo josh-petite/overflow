@@ -12,6 +12,7 @@
     angular.module('overflow.core', [
         'ngResource',
         'ngAnimate',
+        'ngMessages',
         'toastr',
         'ui.router',
         'formly',

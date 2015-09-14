@@ -26,8 +26,7 @@
 
             vm.resource.login(null, credentials)
                 .$promise
-                .success(loginSuccessful)
-                .error(loginError);
+                .then(loginSuccessful, loginError);
 
             function loginSuccessful(data) {
                 deferred.resolve(data);

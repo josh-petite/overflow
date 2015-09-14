@@ -26,6 +26,7 @@
     "bootstrap": "~3.3.5",
     "fontawesome": "~4.4.0",
     "jquery": "~2.1.4",
+    "phaser": "~2.4.3",
     "spinkit": "~1.2.1"
   }
 }

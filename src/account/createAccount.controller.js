@@ -42,16 +42,10 @@
                         required: true
                     },
                     validators: {
-                        required: function($viewValue, $modelValue, scope) {
+                        email: function($viewValue, $modelValue) {
                             var value = $modelValue || $viewValue;
-                            return angular.isDefined(value);
-                        }
-                    },
-                    validation: {
-                        messages: {
-                            required: function(viewValue, modelValue, scope) {
-                                return scope.to.label + ' is required';
-                            }
+                            var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+                            return re.test(value);
                         }
                     }
                 },
@@ -80,6 +74,15 @@
                     },
                     expressionProperties: {
                         'templateOptions.disabled': '!model.password'
+                    },
+                    validators: {
+                        passwordConfirmation: {
+                            expression: function($viewValue, $modelValue) {
+                                var confirmationValue = $modelValue || $viewValue;
+                                return vm.model.password === confirmationValue;
+                            },
+                            message: '"Password confirmation does not match password"'
+                        }
                     }
                 }
             ];
