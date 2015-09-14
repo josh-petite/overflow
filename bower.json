@@ -14,15 +14,18 @@
     "tests"
   ],
   "dependencies": {
-    "angular-mocks": "~1.4.4",
-    "angular-toastr": "~1.4.1",
     "angular": "~1.4.4",
-    "angular-resource": "~1.4.4",
-    "angular-ui-router": "~0.2.15",
-    "jquery": "~2.1.4",
-    "bootstrap": "~3.3.5",
     "angular-animate": "~1.4.4",
-    "spinkit": "~1.2.1",
-    "fontawesome": "~4.4.0"
+    "angular-formly": "~7.1.1",
+    "angular-formly-templates-bootstrap": "~6.0.0",
+    "angular-messages": "~1.4.5",
+    "angular-mocks": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "angular-toastr": "~1.4.1",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.4.0",
+    "jquery": "~2.1.4",
+    "spinkit": "~1.2.1"
   }
 }

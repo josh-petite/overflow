@@ -3,25 +3,17 @@ html body {
   height: 100%;
   font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-size: 1.2em;
-  background-color: #474747;
-  color: #fefefe;
+  background-color: #dedede;
+  color: #474747;
 }
-a {
-  color: #fd5353;
-  cursor: pointer;
-}
-a:hover {
-  color: #ff9999;
-}
-.btn-primary {
-  background-color: #fd5353;
-  border-color: #959595;
-}
-.btn-primary:hover {
-  background-color: #ad0303;
+.app {
+  margin-top: 5px;
 }
 .full-height {
   height: 100%;
+}
+.full-width {
+  width: 100%;
 }
 .container-fluid {
   height: 100%;
@@ -31,14 +23,14 @@ a:hover {
   right: 12px;
 }
 .login-container {
-  border: 2px solid #d5d5d5;
+  border: 2px solid #959595;
   border-radius: 5px;
   margin-top: 5px;
   padding: 5px;
 }
 .login-container h3 {
   margin: 5px 0 0 0;
-  color: #fd5353;
+  color: #ad0303;
 }
 .login-container hr {
   margin: 10px 0;

@@ -3,25 +3,17 @@ html body {
   height: 100%;
   font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-size: 1.2em;
-  background-color: #474747;
-  color: #fefefe;
+  background-color: #dedede;
+  color: #474747;
 }
-a {
-  color: #fd5353;
-  cursor: pointer;
-}
-a:hover {
-  color: #ff9999;
-}
-.btn-primary {
-  background-color: #fd5353;
-  border-color: #959595;
-}
-.btn-primary:hover {
-  background-color: #ad0303;
+.app {
+  margin-top: 5px;
 }
 .full-height {
   height: 100%;
+}
+.full-width {
+  width: 100%;
 }
 .container-fluid {
   height: 100%;

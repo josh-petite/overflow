@@ -11,6 +11,7 @@
 
     angular.module('overflow', [
         'overflow.core',
+        'overflow.account',
         'overflow.login',
         'overflow.dashboard'
     ]);

@@ -3,14 +3,14 @@
         <div class="col-lg-offset-4 col-lg-4 login-container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3>OVERFLOW</h3>
+                    <h3>Overflow</h3>
                 </div>
             </div>
 
             <hr>
 
             <div class="row input">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-3 col-lg-6">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
                         <input type="text" id="username" name="username" placeholder="Username" ng-model="vm.username" class="form-control" autofocus>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="row input">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-3 col-lg-6">
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-key"></i></div>
                         <input type="password" id="password" name="password" placeholder="Password" ng-model="vm.password" class="form-control">
@@ -28,15 +28,14 @@
             </div>
 
             <div class="row input">
-                <div class="col-lg-offset-2 col-lg-10">
+                <div class="col-lg-offset-3 col-lg-6">
                     <input type="checkbox" ng-model="vm.rememberMe"> Remember Me
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-lg-12 text-center">
-                    <button type="button" class="btn btn-primary" ng-click="vm.performLogin()">Login</button>
-                    <button type="button" class="btn btn-default" ng-click="vm.clearForm()">Reset</button>
+                <div class="col-lg-offset-5 col-lg-2">
+                    <button type="button" class="btn btn-primary full-width" ng-click="vm.performLogin()">Login</button>
                 </div>
             </div>
         </div>
@@ -44,11 +43,11 @@
 
     <div class="col-lg-offset-4 col-lg-4">
         <div class="row">
-            <a ui-sref="account-creation">Create an account </a><i class="fa fa-angle-double-right"></i>
+            <a ui-sref="createAccount">Create an account </a><i class="fa fa-angle-double-right"></i>
         </div>
 
         <div class="row">
-            <a ui-sref="password-recovery">Forgot your password </a><i class="fa fa-angle-double-right"></i>
+            <a ui-sref="recoverPassword">Forgot your password </a><i class="fa fa-angle-double-right"></i>
         </div>
     </div>
 </div>

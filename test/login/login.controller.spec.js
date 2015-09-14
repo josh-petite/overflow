@@ -35,17 +35,6 @@
             expect($rootScope.hideNav).toBeTruthy();
         });
 
-        it('should set the username and password fields to empty when clearForm is called', function() {
-            var controller = createController();
-            controller.username = 'test';
-            controller.password = 'pass';
-
-            controller.clearForm();
-
-            expect(controller.username).toBe('');
-            expect(controller.password).toBe('');
-        });
-
         it('should display a success message via notification service when login succeeds', function() {
             var controller = createController();
             controller.username = 'test';

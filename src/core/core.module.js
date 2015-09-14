@@ -14,6 +14,8 @@
         'ngAnimate',
         'toastr',
         'ui.router',
+        'formly',
+        'formlyBootstrap',
         'overflow.templates'
     ]);
 })();

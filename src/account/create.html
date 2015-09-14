@@ -1,0 +1,10 @@
+<div class="create-account-form col-md-4 col-md-offset-4">
+    <form name="vm.accountForm" ng-submit="vm.handleSubmit()" novalidate>
+        <h2>New Account</h2>
+
+        <formly-form model="vm.model" fields="vm.fields" options="vm.options">
+            <button type="submit" class="btn btn-primary" ng-disabled="vm.accountForm.$invalid">Submit</button>
+            <button type="button" class="btn btn-default" ng-click="vm.options.resetModel()">Reset</button>
+        </formly-form>
+    </form>
+</div>

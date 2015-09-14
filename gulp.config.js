@@ -20,10 +20,12 @@ module.exports = function() {
             './src/overflow.module.js',
             './src/main.controller.js',
             './src/core/core.module.js',
+            './src/account/account.module.js',
             './src/login/login.module.js',
             './src/dashboard/dashboard.module.js',
             './src/character/character.module.js',
             './src/core/**/*.js',
+            './src/account/**/*.js',
             './src/login/**/*.js',
             './src/dashboard/**/*.js',
             './src/character/**/*.js'
@@ -35,7 +37,6 @@ module.exports = function() {
             './bower_components/jquery/dist/jquery.min.js',
             './bower_components/jquery/dist/jquery.min.map',
             './bower_components/bootstrap/dist/js/bootstrap.min.js',
-            './bower_components/angular/angular.js',
             './bower_components/angular/angular.min.js',
             './bower_components/angular/angular.min.js.map',
             './bower_components/angular-resource/angular-resource.js',
@@ -45,7 +46,15 @@ module.exports = function() {
             './bower_components/angular-animate/angular-animate.js',
             './bower_components/angular-animate/angular-animate.min.js',
             './bower_components/angular-animate/angular-animate.min.js.map',
-            './bower_components/angular-toastr/dist/angular-toastr.tpls.js'
+            './bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+            './bower_components/api-check/dist/api-check.min.js',
+            './bower_components/api-check/dist/api-check.min.js.map',
+            './bower_components/angular-formly/dist/formly.min.js',
+            './bower_components/angular-formly/dist/formly.min.js.map',
+            './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
+            './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js.map',
+            './bower_components/angular-messages/angular-messages.min.js',
+            './bower_components/angular-messages/angular-messages.min.js.map'
         ]
     };
 

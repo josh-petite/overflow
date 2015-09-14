@@ -18,7 +18,6 @@
         vm.username = '';
         vm.password = '';
 
-        vm.clearForm = clearForm;
         vm.performLogin = performLogin;
 
         activate();
@@ -29,18 +28,11 @@
 
         ///////////////////////////////////////////////////////////////////////
 
-        function clearForm() {
-            vm.username = '';
-            vm.password = '';
-
-            $('#username').focus();
-        }
-
         function performLogin() {
             var promise = LoginService.performLogin(vm.username, vm.password);
             promise.then(loginSuccessful, loginFailed);
 
-            function loginSuccessful(data) {
+            function loginSuccessful() {
                 NotificationService.success('Login successful!');
             }
 
