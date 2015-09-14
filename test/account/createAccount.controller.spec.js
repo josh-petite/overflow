@@ -1,30 +1,30 @@
 (function () {
     'use strict';
 
-    describe('LoginController', function () {
+    describe('CreateAccountController', function () {
         beforeEach(module('overflow.templates'));
         beforeEach(module('overflow.core'));
-        beforeEach(module('overflow.login'));
+        beforeEach(module('overflow.account'));
 
         var $rootScope,
             deferred,
             createController,
             NotificationService,
-            mockLoginService;
+            mockAccountService;
 
         beforeEach(inject(function (_$rootScope_, _$controller_, _$q_, _NotificationService_) {
             $rootScope = _$rootScope_;
             NotificationService = _NotificationService_;
-            mockLoginService = {
-                performLogin: function(model) {
+            mockAccountService = {
+                create: function(model) {
                     deferred = _$q_.defer();
                     return deferred.promise;
                 }
             };
 
             createController = function () {
-                return _$controller_('LoginController', {
-                    LoginService: mockLoginService
+                return _$controller_('CreateAccountController', {
+                    AccountService: mockAccountService
                 });
             };
         }));
@@ -35,42 +35,35 @@
             expect($rootScope.hideNav).toBeTruthy();
         });
 
-        it('should display a success message via notification service when login succeeds', function() {
+        it('should display a success message via notification service when account creation succeeds', function() {
             var controller = createController();
+            controller.model = {user: 'test'};
 
-            controller.model = {
-                username: 'test',
-                password: 'pass'
-            };
-
-            spyOn(mockLoginService, 'performLogin').and.callThrough();
+            spyOn(mockAccountService, 'create').and.callThrough();
             spyOn(NotificationService, 'success');
 
-            controller.performLogin();
+            controller.performCreation();
 
             deferred.resolve('success');
             $rootScope.$apply();
 
-            expect(mockLoginService.performLogin).toHaveBeenCalledWith(controller.model);
-            expect(NotificationService.success).toHaveBeenCalledWith('Login successful!');
+            expect(mockAccountService.create).toHaveBeenCalledWith(controller.model);
+            expect(NotificationService.success).toHaveBeenCalledWith('Account creation successful!');
         });
 
-        it('should display a failure message via notification service when login fails', function() {
+        it('should display a failure message via notification service when account creation fails', function() {
             var controller = createController();
-            controller.model = {
-                username: 'test',
-                password: 'pass'
-            };
+            controller.model = {user: 'test'};
 
-            spyOn(mockLoginService, 'performLogin').and.callThrough();
+            spyOn(mockAccountService, 'create').and.callThrough();
             spyOn(NotificationService, 'error');
 
-            controller.performLogin();
+            controller.performCreation();
 
             deferred.reject('error');
             $rootScope.$apply();
 
-            expect(mockLoginService.performLogin).toHaveBeenCalledWith(controller.model);
+            expect(mockAccountService.create).toHaveBeenCalledWith(controller.model);
             expect(NotificationService.error).toHaveBeenCalledWith('error');
         });
     });

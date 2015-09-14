@@ -11,7 +11,7 @@
     angular.module('overflow.account')
         .controller('CreateAccountController', createAccountController);
 
-    function createAccountController(AccountService, NotificationService) {
+    function createAccountController($rootScope, AccountService, NotificationService) {
         /*jshint validthis: true */
         var vm = this;
         vm.fields = [];
@@ -24,6 +24,7 @@
 
         function activate() {
             constructFields();
+            $rootScope.hideNav = true;
             vm.originalFields = angular.copy(vm.fields);
         }
 
