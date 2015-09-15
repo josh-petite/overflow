@@ -11,7 +11,7 @@
 
     var $ = require('gulp-load-plugins')({ lazy: true });
 
-    gulp.task('heroku:dev', ['styles', 'build', 'templates', 'libraries', 'fonts']);
+    gulp.task('heroku:dev', ['styles', 'compile', 'templates', 'libraries', 'fonts']);
 
     gulp.task('test', ['templates'], function (done) {
         new Server({
@@ -20,7 +20,7 @@
         }, done).start();
     });
 
-    gulp.task('default', ['styles', 'build', 'templates', 'libraries', 'fonts', 'nodemon'], function () {
+    gulp.task('default', ['styles', 'compile', 'templates', 'libraries', 'fonts', 'nodemon'], function () {
         gulp.src('')
             .pipe($.open({ app: 'firefox', uri: 'http://localhost:3000' }));
     });
@@ -35,7 +35,7 @@
             .pipe(gulp.dest('./public/js'))
     });
 
-    gulp.task('build', ['clean'], function () {
+    gulp.task('compile', ['clean'], function () {
         'use strict';
 
         return gulp
@@ -57,7 +57,7 @@
             ext: 'js html less',
             ignore: ['node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
             env: { 'NODE_ENV': 'development' },
-            tasks: ['styles', 'build', 'templates', 'libraries', 'vet']
+            tasks: ['styles', 'compile', 'templates', 'libraries', 'vet']
         });
     });
 

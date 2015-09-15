@@ -1,6 +1,6 @@
 {
   "name": "overflow",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/josh28/overflow",
   "authors": [
     "Josh Petite <josh.petite@gmail.com>"
@@ -21,12 +21,15 @@
     "angular-messages": "~1.4.5",
     "angular-mocks": "~1.4.4",
     "angular-resource": "~1.4.4",
-    "angular-toastr": "~1.4.1",
+    "angular-toastr": "~1.5.0",
     "angular-ui-router": "~0.2.15",
     "bootstrap": "~3.3.5",
     "fontawesome": "~4.4.0",
     "jquery": "~2.1.4",
     "phaser": "~2.4.3",
     "spinkit": "~1.2.1"
+  },
+  "resolutions": {
+    "angular-toastr": "~1.5.0"
   }
 }
