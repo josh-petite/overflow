@@ -6,6 +6,7 @@
 
 var app = require('./app');
 var debug = require('debug')('overflow:server');
+var fs = require('fs');
 var http = require('http');
 var https = require('https');
 
@@ -13,23 +14,42 @@ var https = require('https');
  * Get port from environment and store in Express.
  */
 
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
+
+/**
+ * Wire DB
+ */
 
 var db = 'postgres://voksiwgkmieraq:uqpa5tBRBYQkoZZaCodIe7oq81@ec2-54-227-255-240.compute-1.amazonaws.com:5432/d9798pd02ordli?ssl=true';
 process.env.DATABASE_URL = db;
-
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
+//server.listen(port);
+//server.on('error', onError);
+//server.on('listening', onListening);
+
+/**
+ * Create HTTPS server
+ */
+
+    //openssl req -newkey rsa:4096 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+
+var options = {
+    key: fs.readFileSync('./server/keys/key.pem'),
+    cert: fs.readFileSync('./server/keys/cert.pem')
+};
+
+var server = https.createServer(options, app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);

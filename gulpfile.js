@@ -22,7 +22,7 @@
 
     gulp.task('default', ['styles', 'compile', 'templates', 'libraries', 'fonts', 'nodemon'], function () {
         gulp.src('')
-            .pipe($.open({ app: 'firefox', uri: 'http://localhost:3000' }));
+            .pipe($.open({ app: 'firefox', uri: 'https://localhost:3000' }));
     });
 
     gulp.task('templates', function () {
