@@ -61,14 +61,9 @@
         });
     });
 
-    gulp.task('clean', ['clean-scripts', 'clean-styles']);
-
-    gulp.task('clean-scripts', function (done) {
-        clean(config.jsTarget, done);
-    });
-
-    gulp.task('clean-styles', function (done) {
-        clean(config.styleTarget, done);
+    gulp.task('clean', function() {
+        del(config.jsTarget);
+        del(config.styleTarget);
     });
 
     gulp.task('libraries', function () {
@@ -107,17 +102,7 @@
             .pipe(gulp.dest(config.styleDestination));
     });
 
-    gulp.task('clean-styles', function (done) {
-        var files = config.styleDestination + '**/*.css';
-        clean(files, done);
-    });
-
 ///////////////////////////////////////////////////////////////////////////////
-
-    function clean(path, done) {
-        del(path, done);
-        log('Cleaning: ' + $.util.colors.blue(path));
-    }
 
     function log(message) {
         if (typeof(message) === 'object') {
