@@ -16,7 +16,7 @@
         return {
             restrict: 'A',
             scope: {},
-            templateUrl: 'src/core/directives/templates/nav.html'
+            templateUrl: 'src/core/nav/nav.html'
         };
     }
 })();

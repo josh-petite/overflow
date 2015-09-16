@@ -29,6 +29,7 @@ module.exports = function (config) {
             './bower_components/angular-formly/dist/formly.min.js',
             './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
             './bower_components/angular-messages/angular-messages.min.js',
+            './bower_components/phaser/build/phaser.min.js',
             'src/**/*.module.js',
             'src/**/*.js',
             'public/js/templates.js',

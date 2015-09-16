@@ -54,7 +54,9 @@ module.exports = function() {
             './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
             './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js.map',
             './bower_components/angular-messages/angular-messages.min.js',
-            './bower_components/angular-messages/angular-messages.min.js.map'
+            './bower_components/angular-messages/angular-messages.min.js.map',
+            './bower_components/phaser/build/phaser.min.js',
+            './bower_components/phaser/build/phaser.map'
         ]
     };
 
