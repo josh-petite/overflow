@@ -12,22 +12,17 @@
         .controller('MainController', mainController);
 
     /* @ngInject */
-    function mainController($rootScope, NotificationService) {
+    function mainController($rootScope) {
         activate();
 
         function activate() {
-            ensureNavIsVisible();
+            $rootScope.hideNav = false;
             $rootScope.$on('$stateChangeStart', handleStateChangeStart);
         }
 
         ///////////////////////////////////////////////////////////////////////
 
         function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
-            ensureNavIsVisible();
-            NotificationService.clearNotifications();
-        }
-
-        function ensureNavIsVisible() {
             $rootScope.hideNav = false;
         }
     }

@@ -11,7 +11,10 @@
     angular.module('overflow.core')
         .factory('NotificationService', notificationService);
 
-    function notificationService(toastr) {
+    function notificationService($rootScope, toastr) {
+
+        activate();
+
         return {
             clearNotifications: clearNotifications,
             success: success,
@@ -20,8 +23,16 @@
             error: error
         };
 
+        function activate() {
+            $rootScope.$on('$stateChangeStart', handleStateChangeStart);
+        }
+
         function clearNotifications() {
             toastr.clear();
+        }
+
+        function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
+            NotificationService.clearNotifications();
         }
 
         function success(message, options) {
