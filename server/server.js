@@ -27,7 +27,7 @@ process.env.DATABASE_URL = db;
  * Create HTTPS server
  */
 
-    //openssl req -newkey rsa:4096 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+//openssl req -newkey rsa:4096 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
 
 var options = {
     key: fs.readFileSync('./server/keys/key.pem'),
