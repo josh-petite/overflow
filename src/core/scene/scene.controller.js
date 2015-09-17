@@ -42,14 +42,14 @@
             vm.game.physics.arcade.enable(vm.player);
 
             //  Player physics properties. Give the little guy a slight bounce.
-            vm.player.body.bounce.y = 0.2;
-            vm.player.body.gravity.y = 300;
+            //vm.player.body.bounce.y = 0.2;
+            //vm.player.body.gravity.y = 300;
             vm.player.body.collideWorldBounds = true;
 
             vm.player.animations.add('up', [0, 1, 2], 10, true);
-            vm.player.animations.add('right', [12, 13, 14, 15], 10, true);
-            vm.player.animations.add('down', [25, 26, 27, 28], 10, true);
-            vm.player.animations.add('left', [37, 38, 39, 40], 10, true);
+            vm.player.animations.add('right', [12, 13, 14], 10, true);
+            vm.player.animations.add('down', [24, 25, 26], 10, true);
+            vm.player.animations.add('left', [36, 37, 38], 10, true);
         }
 
         function update() {
@@ -59,16 +59,22 @@
 
             if (cursors.left.isDown) {
                 //  Move to the left
-                vm.player.body.velocity.x = -150;
+                vm.player.body.position.x += -3;
                 vm.player.animations.play('left');
             } else if (cursors.right.isDown) {
                 //  Move to the right
-                vm.player.body.velocity.x = 150;
+                vm.player.body.position.x += 3;
                 vm.player.animations.play('right');
+            } else if (cursors.up.isDown) {
+                vm.player.body.position.y += -3;
+                vm.player.animations.play('up');
+            } else if (cursors.down.isDown) {
+                vm.player.body.position.y += 3;
+                vm.player.animations.play('down');
             } else {
                 //  Stand still
                 vm.player.animations.stop();
-                vm.player.frame = 4;
+                vm.player.frame = 1;
             }
 
             //  Allow the player to jump if they are touching the ground.

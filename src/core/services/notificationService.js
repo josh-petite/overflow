@@ -32,7 +32,7 @@
         }
 
         function handleStateChangeStart(event, toState, toParams, fromState, fromParams) {
-            NotificationService.clearNotifications();
+            clearNotifications();
         }
 
         function success(message, options) {
