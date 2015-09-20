@@ -3,7 +3,12 @@
         <h2>Login</h2>
 
         <formly-form model="vm.model" fields="vm.fields" options="vm.options">
-            <button type="button" class="btn btn-primary" ng-disabled="vm.loginForm.$invalid">Login</button>
+            <button type="button"
+                    class="btn btn-primary"
+                    ng-disabled="vm.loginForm.$invalid"
+                    ng-click="vm.performLogin()">
+                Login
+            </button>
         </formly-form>
     </form>
 </div>

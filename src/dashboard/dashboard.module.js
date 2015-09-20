@@ -9,8 +9,7 @@
     'use strict';
 
     angular.module('overflow.dashboard', [
-        'overflow.core',
-        'overflow.character'
+        'overflow.core'
     ]);
 
     angular.module('overflow.dashboard')

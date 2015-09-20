@@ -12,7 +12,7 @@ router.use(function timeLog(req, res, next) {
 router.get('/:id', function(req, res) {
     db.query('SELECT id, name, level, job, hitPoints, createdDate from character where id = $1', req.params.id)
         .then(function(data) {
-            console.log(data);
+            console.log(data[0]);
             res.send(data[0]);
         }, function(reason) {
             console.log(reason);

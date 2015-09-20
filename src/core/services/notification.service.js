@@ -16,7 +16,6 @@
         activate();
 
         return {
-            clearNotifications: clearNotifications,
             success: success,
             info: info,
             warning: warning,

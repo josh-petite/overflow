@@ -12,19 +12,16 @@
         .controller('SceneController', sceneController);
 
     /* @ngInject */
-    function sceneController() {
+    function sceneController(GameConfig) {
         /*jshint validthis: true */
         var vm = this;
         vm.game = {};
         vm.player = {};
-        vm.playerAttributes = {
-            name: 'Malduvias'
-        };
 
         activate();
 
         function activate() {
-            vm.game = new Phaser.Game(720, 480, Phaser.AUTO, 'target', {preload: preload, create: create, update: update});
+            vm.game = new Phaser.Game(GameConfig.width, GameConfig.height, Phaser.AUTO, 'target', {preload: preload, create: create, update: update});
         }
 
         ///////////////////////////////////////////////////////////////////////

@@ -1,0 +1,40 @@
+<div class="panel character-panel">
+    <div class="panel-body" ng-show="vm.loadingCharacter">
+        <loading-indicator></loading-indicator>
+    </div>
+
+    <div class="panel-body" ng-hide="vm.loadingCharacter">
+        <div class="row">
+            <div class="col-lg-3 character-panel-label">
+                Name:
+            </div>
+            <div class="col-lg-9">
+                {{vm.characterDetails.name}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 character-panel-label">
+                Job:
+            </div>
+            <div class="col-lg-9">
+                {{vm.characterDetails.job}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 character-panel-label">
+                Level:
+            </div>
+            <div class="col-lg-9">
+                {{vm.characterDetails.level}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 character-panel-label">
+                HP:
+            </div>
+            <div class="col-lg-9">
+                {{vm.characterDetails.hitpoints}}
+            </div>
+        </div>
+    </div>
+</div>
