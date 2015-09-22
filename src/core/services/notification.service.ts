@@ -1,46 +1,59 @@
 /// <reference path="../../../typings/tsd.d.ts" />
+
 /**
  * @ngdoc service
  * @name NotificationService
  * @module overflow.core
  * @description Primary module for displaying toast user feedback notifications
  **/
-var fl;
-(function (fl) {
+
+module fl {
     'use strict';
-    angular.module('overflow.core').factory('NotificationService', NotificationService);
-    var NotificationService = (function () {
+
+    angular.module('overflow.core')
+        .factory('NotificationService', NotificationService);
+
+    export interface INotificationService {
+        error: (message: string, options?: any, title?: string) => void;
+        info: (message: string, options?: any, title?: string) => void;
+        success: (message: string, options?: any, title?: string) => void;
+        warning: (message: string, options?: any, title?: string) => void;
+    }
+
+    class NotificationService implements INotificationService {
+
         /* @ngInject */
-        function NotificationService($rootScope, toastr) {
-            this.$rootScope = $rootScope;
-            this.toastr = toastr;
+        constructor(private $rootScope : ng.IRootScopeService, private toastr : any) {
             $rootScope.$on('$stateChangeStart', this.handleStateChangeStart);
         }
-        NotificationService.prototype.handleStateChangeStart = function (event, toState, toParams, fromState, fromParams) {
+
+        private handleStateChangeStart(event, toState, toParams, fromState, fromParams) : void {
             this.toastr.clear();
-        };
-        NotificationService.prototype.success = function (message, options, title) {
+        }
+
+        success(message, options, title) : void {
             options = options || {};
             options.progressBar = true;
             this.toastr.success(message, title || 'Success', options);
-        };
-        NotificationService.prototype.info = function (message, options, title) {
+        }
+
+        info(message, options, title) : void {
             options = options || {};
             options.progressBar = true;
             this.toastr.info(message, title, 'Info', options);
-        };
-        NotificationService.prototype.warning = function (message, options, title) {
+        }
+
+        warning(message, options, title) : void {
             options = options || {};
             options.progressBar = true;
             this.toastr.warning(message, title || 'Warning', options);
-        };
-        NotificationService.prototype.error = function (message, options, title) {
+        }
+
+        error(message, options, title) : void {
             options = options || {};
             options.closeButton = true;
             options.timeOut = 0;
             this.toastr.error(message, title || 'Error', options);
-        };
-        return NotificationService;
-    })();
-})(fl || (fl = {}));
-//# sourceMappingURL=notification.service.js.map
+        }
+    }
+}

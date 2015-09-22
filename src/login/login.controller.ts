@@ -1,27 +1,32 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="login.service.ts" />
 /// <reference path="../core/services/notification.service.ts" />
+
 /**
  * @ngdoc controller
  * @name LoginController
  * @module overflow.login
  * @description Primary login controller
  **/
-var fl;
-(function (fl) {
+
+module fl {
     'use strict';
-    angular.module('overflow.login').controller('LoginController', LoginController);
-    var LoginController = (function () {
+
+    angular.module('overflow.login')
+        .controller('LoginController', LoginController);
+
+
+    class LoginController  {
+        public fields = [];
+        public model = {};
+        public options = {};
+
         /* @ngInject */
-        function LoginController(LoginService, NotificationService) {
-            this.LoginService = LoginService;
-            this.NotificationService = NotificationService;
-            this.fields = [];
-            this.model = {};
-            this.options = {};
+        constructor(private LoginService : fl.ILoginService, private NotificationService : fl.INotificationService) {
             this.constructFields();
         }
-        LoginController.prototype.constructFields = function () {
+
+        private constructFields() : void {
             vm.fields = [
                 {
                     key: 'username',
@@ -34,7 +39,7 @@ var fl;
                         required: true
                     },
                     validators: {
-                        email: function ($viewValue, $modelValue) {
+                        email: function($viewValue, $modelValue) {
                             var value = $modelValue || $viewValue;
                             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
                             return re.test(value);
@@ -59,18 +64,19 @@ var fl;
                     }
                 }
             ];
-        };
-        LoginController.prototype.performLogin = function () {
+        }
+
+        public performLogin() : void {
             var promise = this.LoginService.performLogin(this.model);
             promise.then(loginSuccessful, loginFailed);
-            function loginSuccessful() {
+
+            function loginSuccessful() : void {
                 this.NotificationService.success('Login successful!');
             }
-            function loginFailed(error) {
+
+            function loginFailed(error) : void {
                 this.NotificationService.error(error);
             }
-        };
-        return LoginController;
-    })();
-})(fl || (fl = {}));
-//# sourceMappingURL=login.controller.js.map
+        }
+    }
+}
