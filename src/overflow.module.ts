@@ -7,7 +7,7 @@
  * @description Primary module for overflow application.
  **/
 
-module fl {
+module Overflow {
     'use strict';
 
     angular.module('overflow', [

@@ -5,8 +5,8 @@
  * @module overflow
  * @description Primary module for overflow application.
  **/
-var fl;
-(function (fl) {
+var Overflow;
+(function (Overflow) {
     'use strict';
     angular.module('overflow', [
         'overflow.core',
@@ -14,5 +14,5 @@ var fl;
         'overflow.login',
         'overflow.dashboard'
     ]);
-})(fl || (fl = {}));
+})(Overflow || (Overflow = {}));
 //# sourceMappingURL=overflow.module.js.map
