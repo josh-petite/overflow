@@ -4,6 +4,7 @@ module.exports = function() {
     var src = './public/';
 
     var config = {
+        typescriptSource: './src/**/*.ts',
         fonts: './bower_components/fontawesome/fonts/*.*',
         styleDestination: src + 'styles/',
         styleLibraries: [

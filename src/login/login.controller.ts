@@ -1,6 +1,7 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="login.service.ts" />
 /// <reference path="../core/services/notification.service.ts" />
+/// <reference path="../core/interfaces/angular-formly-field.ts" />
 
 /**
  * @ngdoc controller
@@ -9,25 +10,24 @@
  * @description Primary login controller
  **/
 
-module fl {
+module ov {
     'use strict';
 
     angular.module('overflow.login')
         .controller('LoginController', LoginController);
 
-
-    class LoginController  {
-        public fields = [];
+    class LoginController {
+        public fields = Array<ov.IAngularFormlyField>();
         public model = {};
         public options = {};
 
         /* @ngInject */
-        constructor(private LoginService : fl.ILoginService, private NotificationService : fl.INotificationService) {
+        constructor(private LoginService:ov.ILoginService, private NotificationService:ov.INotificationService) {
             this.constructFields();
         }
 
-        private constructFields() : void {
-            vm.fields = [
+        private constructFields():void {
+            this.fields = [
                 {
                     key: 'username',
                     type: 'input',
@@ -39,7 +39,7 @@ module fl {
                         required: true
                     },
                     validators: {
-                        email: function($viewValue, $modelValue) {
+                        email: function ($viewValue: any, $modelValue: any) : boolean {
                             var value = $modelValue || $viewValue;
                             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
                             return re.test(value);
@@ -66,15 +66,15 @@ module fl {
             ];
         }
 
-        public performLogin() : void {
+        public performLogin():void {
             var promise = this.LoginService.performLogin(this.model);
             promise.then(loginSuccessful, loginFailed);
 
-            function loginSuccessful() : void {
+            function loginSuccessful():void {
                 this.NotificationService.success('Login successful!');
             }
 
-            function loginFailed(error) : void {
+            function loginFailed(error: {}):void {
                 this.NotificationService.error(error);
             }
         }

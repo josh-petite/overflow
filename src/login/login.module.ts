@@ -1,4 +1,5 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angular-ui-router/angular-ui-router.d.ts" />
 
 /**
  * @ngdoc module
@@ -7,7 +8,7 @@
  * @description Controls interactions between API and user for performing user authentication and session creation
  **/
 
-module fl {
+module ov {
     'use strict';
 
     angular.module('overflow.login', [
@@ -15,17 +16,19 @@ module fl {
     ]);
 
     angular.module('overflow.login')
-        .config(loginRoutes);
+        .config(LoginRoutes);
 
-    /* @ngInject */
-    function loginRoutes($stateProvider, $urlRouterProvider) : void {
-        $stateProvider
-            .state('login', {
-                url: '/login',
-                templateUrl: 'src/login/login.html',
-                controller: 'LoginController as vm'
-            });
+    class LoginRoutes {
+        /* @ngInject */
+        constructor($stateProvider : angular.ui.IStateProvider, $urlRouterProvider : angular.ui.IUrlRouterProvider) {
+            $stateProvider
+                .state('login', {
+                    url: '/login',
+                    templateUrl: 'src/login/login.html',
+                    controller: 'LoginController as vm'
+                });
 
-        $urlRouterProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/');
+        }
     }
 }

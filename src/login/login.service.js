@@ -6,8 +6,8 @@
  * @module overflow.login
  * @description Dashboard service for retrieving metadata and performing actions on the main dashboard
  **/
-var fl;
-(function (fl) {
+var ov;
+(function (ov) {
     'use strict';
     angular.module('overflow.login').factory('LoginService', LoginService);
     var LoginService = (function () {
@@ -16,11 +16,11 @@ var fl;
             this.$resource = $resource;
             this.$q = $q;
             this.$log = $log;
-            this.resource = $resource('/api/v1/login', null, { login: { method: 'POST' } });
+            this.resource = $resource('/api/v1/login');
         }
         LoginService.prototype.performLogin = function (credentials) {
             var deferred = this.$q.defer();
-            this.resource.login(null, credentials).$promise.then(loginSuccessful, loginError);
+            this.resource.save(null, credentials).$promise.then(loginSuccessful, loginError);
             function loginSuccessful(data) {
                 deferred.resolve(data);
             }
@@ -32,5 +32,5 @@ var fl;
         };
         return LoginService;
     })();
-})(fl || (fl = {}));
+})(ov || (ov = {}));
 //# sourceMappingURL=login.service.js.map

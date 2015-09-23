@@ -5,8 +5,8 @@
  * @module overflow.core
  * @description Primary module for displaying toast user feedback notifications
  **/
-var fl;
-(function (fl) {
+var ov;
+(function (ov) {
     'use strict';
     angular.module('overflow.core').factory('NotificationService', NotificationService);
     var NotificationService = (function () {
@@ -16,7 +16,7 @@ var fl;
             this.toastr = toastr;
             $rootScope.$on('$stateChangeStart', this.handleStateChangeStart);
         }
-        NotificationService.prototype.handleStateChangeStart = function (event, toState, toParams, fromState, fromParams) {
+        NotificationService.prototype.handleStateChangeStart = function () {
             this.toastr.clear();
         };
         NotificationService.prototype.success = function (message, options, title) {
@@ -42,5 +42,5 @@ var fl;
         };
         return NotificationService;
     })();
-})(fl || (fl = {}));
+})(ov || (ov = {}));
 //# sourceMappingURL=notification.service.js.map

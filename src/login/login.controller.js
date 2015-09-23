@@ -1,14 +1,15 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="login.service.ts" />
 /// <reference path="../core/services/notification.service.ts" />
+/// <reference path="../core/interfaces/angular-formly-field.ts" />
 /**
  * @ngdoc controller
  * @name LoginController
  * @module overflow.login
  * @description Primary login controller
  **/
-var fl;
-(function (fl) {
+var ov;
+(function (ov) {
     'use strict';
     angular.module('overflow.login').controller('LoginController', LoginController);
     var LoginController = (function () {
@@ -16,13 +17,13 @@ var fl;
         function LoginController(LoginService, NotificationService) {
             this.LoginService = LoginService;
             this.NotificationService = NotificationService;
-            this.fields = [];
+            this.fields = Array();
             this.model = {};
             this.options = {};
             this.constructFields();
         }
         LoginController.prototype.constructFields = function () {
-            vm.fields = [
+            this.fields = [
                 {
                     key: 'username',
                     type: 'input',
@@ -72,5 +73,5 @@ var fl;
         };
         return LoginController;
     })();
-})(fl || (fl = {}));
+})(ov || (ov = {}));
 //# sourceMappingURL=login.controller.js.map
