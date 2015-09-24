@@ -10,19 +10,18 @@
  * @description Primary login controller
  **/
 
-module Overflow {
-    'use strict';
+module Overflow.Login {
 
     angular.module('overflow.login')
         .controller('LoginController', LoginController);
 
     class LoginController {
-        public fields = Array<AngularFormly.IFieldConfigurationObject>();
+        public fields : Array<AngularFormly.IFieldConfigurationObject>;
         public model = {};
-        public options = {};
+        public options : AngularFormly.IFormOptionsAPI;
 
         /* @ngInject */
-        constructor(private LoginService:ov.ILoginService, private NotificationService:ov.INotificationService) {
+        constructor(private LoginService:Overflow.Login.ILoginService, private NotificationService:Overflow.Core.Services.INotificationService) {
             this.constructFields();
         }
 

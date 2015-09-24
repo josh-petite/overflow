@@ -20,7 +20,7 @@
         }, done).start();
     });
 
-    gulp.task('default', ['styles', 'compile', 'typescript', 'templates', 'libraries', 'fonts', 'nodemon'], function() {
+    gulp.task('default', ['styles', 'compile', 'templates', 'libraries', 'fonts', 'nodemon'], function() {
         gulp.src('')
             .pipe($.open({app: 'firefox', uri: 'https://localhost:3000'}));
     });

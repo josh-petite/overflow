@@ -1,42 +1,38 @@
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angularjs/angular-resource.d.ts" />
 /**
  * @ngdoc service
  * @name AccountService
  * @module overflow.account
  * @description Service for user interactions with account data
  **/
-
-(function() {
-    'use strict';
-
-    angular.module('overflow.account')
-        .factory('AccountService', accountService);
-
-    function accountService($resource, $q, $log) {
-        var resource = $resource('/api/v1/account/:id', {id: '@id'});
-
-        return {
-            create: create
-        };
-
-        ///////////////////////////////////////////////////////////////////////
-
-        function create(newAccount) {
-            var deferred = $q.defer();
-
-            resource.save(null, newAccount)
-                .$promise
-                .then(accountCreationSuccessful, accountCreationFailed);
-
-            function accountCreationSuccessful(data) {
-                deferred.resolve(data);
+var Overflow;
+(function (Overflow) {
+    var Account;
+    (function (Account) {
+        angular.module('overflow.account').factory('AccountService', AccountService);
+        var AccountService = (function () {
+            /* @ngInject */
+            function AccountService($resource, $q, $log) {
+                this.$resource = $resource;
+                this.$q = $q;
+                this.$log = $log;
+                this.resource = $resource('/api/v1/account/:id', { id: '@id' });
             }
-
-            function accountCreationFailed(error) {
-                $log.error(error);
-                deferred.reject(error);
-            }
-
-            return deferred.promise;
-        }
-    }
-})();
+            AccountService.prototype.create = function (newAccount) {
+                var deferred = this.$q.defer();
+                this.resource.save(null, newAccount).$promise.then(accountCreationSuccessful, accountCreationFailed);
+                function accountCreationSuccessful(data) {
+                    deferred.resolve(data);
+                }
+                function accountCreationFailed(error) {
+                    this.$log.error(error);
+                    deferred.reject(error);
+                }
+                return deferred.promise;
+            };
+            return AccountService;
+        })();
+    })(Account = Overflow.Account || (Overflow.Account = {}));
+})(Overflow || (Overflow = {}));
+//# sourceMappingURL=account.service.js.map

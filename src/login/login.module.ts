@@ -16,9 +16,9 @@ module Overflow.Login {
     ]);
 
     angular.module('overflow.login')
-        .config(LoginRoutes);
+        .config(LoginRouteConfiguration);
 
-    class LoginRoutes {
+    class LoginRouteConfiguration {
         /* @ngInject */
         constructor($stateProvider : angular.ui.IStateProvider, $urlRouterProvider : angular.ui.IUrlRouterProvider) {
             $stateProvider

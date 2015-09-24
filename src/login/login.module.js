@@ -14,10 +14,10 @@ var Overflow;
         angular.module('overflow.login', [
             'overflow.core'
         ]);
-        angular.module('overflow.login').config(LoginRoutes);
-        var LoginRoutes = (function () {
+        angular.module('overflow.login').config(LoginRouteConfiguration);
+        var LoginRouteConfiguration = (function () {
             /* @ngInject */
-            function LoginRoutes($stateProvider, $urlRouterProvider) {
+            function LoginRouteConfiguration($stateProvider, $urlRouterProvider) {
                 $stateProvider.state('login', {
                     url: '/login',
                     templateUrl: 'src/login/login.html',
@@ -25,7 +25,7 @@ var Overflow;
                 });
                 $urlRouterProvider.otherwise('/');
             }
-            return LoginRoutes;
+            return LoginRouteConfiguration;
         })();
     })(Login = Overflow.Login || (Overflow.Login = {}));
 })(Overflow || (Overflow = {}));
