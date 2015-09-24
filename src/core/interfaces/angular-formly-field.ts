@@ -1,4 +1,4 @@
-module ov {
+module Overflow.Interfaces {
 
     export interface IAngularFormlyField {
         key: string;

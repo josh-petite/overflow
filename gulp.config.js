@@ -4,7 +4,6 @@ module.exports = function() {
     var src = './public/';
 
     var config = {
-        typescriptSource: './src/**/*.ts',
         fonts: './bower_components/fontawesome/fonts/*.*',
         styleDestination: src + 'styles/',
         styleLibraries: [
@@ -18,18 +17,18 @@ module.exports = function() {
         styleTarget: src + 'styles/*.*',
         outputTarget: src + '**/*.*',
         source: [
-            './src/overflow.module.js',
-            './src/main.controller.js',
-            './src/core/core.module.js',
-            './src/account/account.module.js',
-            './src/login/login.module.js',
-            './src/dashboard/dashboard.module.js',
-            './src/character/character.module.js',
-            './src/core/**/*.js',
-            './src/account/**/*.js',
-            './src/login/**/*.js',
-            './src/dashboard/**/*.js',
-            './src/character/**/*.js'
+            './src/overflow.module.ts',
+            './src/main.controller.ts',
+            './src/core/core.module.ts',
+            './src/account/account.module.ts',
+            './src/login/login.module.ts',
+            './src/dashboard/dashboard.module.ts',
+            './src/character/character.module.ts',
+            './src/core/**/*.ts',
+            './src/account/**/*.ts',
+            './src/login/**/*.ts',
+            './src/dashboard/**/*.ts',
+            './src/character/**/*.ts'
         ],
         less: './src/**/*.less',
         libraryDestination: src + 'js/lib/',

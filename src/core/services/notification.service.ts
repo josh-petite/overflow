@@ -7,7 +7,7 @@
  * @description Primary module for displaying toast user feedback notifications
  **/
 
-module ov {
+module Overflow {
     'use strict';
 
     angular.module('overflow.core')

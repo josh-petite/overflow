@@ -8,8 +8,8 @@
  * @module overflow.login
  * @description Primary login controller
  **/
-var ov;
-(function (ov) {
+var Overflow;
+(function (Overflow) {
     'use strict';
     angular.module('overflow.login').controller('LoginController', LoginController);
     var LoginController = (function () {
@@ -73,5 +73,5 @@ var ov;
         };
         return LoginController;
     })();
-})(ov || (ov = {}));
+})(Overflow || (Overflow = {}));
 //# sourceMappingURL=login.controller.js.map

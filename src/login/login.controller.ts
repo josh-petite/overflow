@@ -10,14 +10,14 @@
  * @description Primary login controller
  **/
 
-module ov {
+module Overflow {
     'use strict';
 
     angular.module('overflow.login')
         .controller('LoginController', LoginController);
 
     class LoginController {
-        public fields = Array<ov.IAngularFormlyField>();
+        public fields = Array<Overflow.Interfaces.IAngularFormlyField>();
         public model = {};
         public options = {};
 

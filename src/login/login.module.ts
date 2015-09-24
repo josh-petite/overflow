@@ -8,7 +8,7 @@
  * @description Controls interactions between API and user for performing user authentication and session creation
  **/
 
-module ov {
+module Overflow.Login {
     'use strict';
 
     angular.module('overflow.login', [

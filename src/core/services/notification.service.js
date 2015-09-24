@@ -5,8 +5,8 @@
  * @module overflow.core
  * @description Primary module for displaying toast user feedback notifications
  **/
-var ov;
-(function (ov) {
+var Overflow;
+(function (Overflow) {
     'use strict';
     angular.module('overflow.core').factory('NotificationService', NotificationService);
     var NotificationService = (function () {
@@ -42,5 +42,5 @@ var ov;
         };
         return NotificationService;
     })();
-})(ov || (ov = {}));
+})(Overflow || (Overflow = {}));
 //# sourceMappingURL=notification.service.js.map

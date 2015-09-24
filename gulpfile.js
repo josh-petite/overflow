@@ -36,19 +36,11 @@
     });
 
     gulp.task('compile', ['clean'], function() {
-        return gulp
-            .src(config.source)
-            .pipe($.concat('app.js'))
-            .pipe($.ngAnnotate())
-            .pipe(gulp.dest('./public/js'));
-    });
-
-    gulp.task('typescript', function() {
         var result = gulp
-            .src(config.typescriptSource)
+            .src(config.source)
             .pipe($.typescript({
                 noImplicitAny: true,
-                out: 'app-typescript.js'
+                out: 'app.js'
             }));
 
         return result.js.pipe(gulp.dest('./public/js'));
@@ -80,17 +72,6 @@
             .pipe(gulp.dest(config.libraryDestination));
     });
 
-    gulp.task('vet', function() {
-        return gulp
-            .src(config.source)
-            .pipe($.if(args.verbose, $.print()))
-            .pipe($.jscs())
-            .pipe($.jshint())
-            .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
-            .pipe($.jshint.reporter('fail'));
-    });
-
-
     gulp.task('styles', ['style-libraries'], function() {
         var processors = [
             autoprefixer({browsers: ['last 2 version', '> 5%']}),
@@ -110,18 +91,4 @@
         return gulp.src(config.styleLibraries)
             .pipe(gulp.dest(config.styleDestination));
     });
-
-///////////////////////////////////////////////////////////////////////////////
-
-    function log(message) {
-        if (typeof(message) === 'object') {
-            for (var item in message) {
-                if (message.hasOwnProperty(item)) {
-                    $.util.log($.util.colors.blue(message[item]));
-                }
-            }
-        } else {
-            $.util.log($.util.colors.blue(message));
-        }
-    }
 })();

@@ -7,7 +7,7 @@
  * @description Global controller for interacting with main module and global state
  **/
 
-module ov {
+module Overflow {
 
     angular.module('overflow')
         .controller('MainController', MainController);
