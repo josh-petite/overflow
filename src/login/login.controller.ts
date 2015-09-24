@@ -1,7 +1,7 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 /// <reference path="login.service.ts" />
 /// <reference path="../core/services/notification.service.ts" />
-/// <reference path="../core/interfaces/angular-formly-field.ts" />
+/// <reference path="../../typings/angular-formly/angular-formly.d.ts" />
 
 /**
  * @ngdoc controller
@@ -17,7 +17,7 @@ module Overflow {
         .controller('LoginController', LoginController);
 
     class LoginController {
-        public fields = Array<Overflow.Interfaces.IAngularFormlyField>();
+        public fields = Array<AngularFormly.IFieldConfigurationObject>();
         public model = {};
         public options = {};
 
