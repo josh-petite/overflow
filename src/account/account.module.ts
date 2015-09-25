@@ -17,7 +17,8 @@ module Overflow.Account {
         .config(AccountRouteConfiguration);
 
     class AccountRouteConfiguration {
-        /* @ngInject */
+        $inject = ['$stateProvider', '$urlRouterProvider'];
+
         constructor($stateProvider : angular.ui.IStateProvider, $urlRouterProvider : angular.ui.IUrlRouterProvider) {
             $stateProvider
                 .state('createAccount', {
