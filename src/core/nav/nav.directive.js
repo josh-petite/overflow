@@ -13,6 +13,7 @@ var Overflow;
         (function (Directives) {
             var HorizontalNavDirective = (function () {
                 function HorizontalNavDirective() {
+                    this.scope = {};
                     this.templateUrl = 'src/core/nav/nav.html';
                 }
                 HorizontalNavDirective.Factory = function () {

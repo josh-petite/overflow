@@ -10,16 +10,13 @@ var Overflow;
     var Dashboard;
     (function (Dashboard) {
         var CharacterPanelDirective = (function () {
-            function CharacterPanelDirective($scope, templateUrl, controller) {
-                this.$scope = $scope;
-                this.templateUrl = templateUrl;
-                this.controller = controller;
-                templateUrl = 'src/dashboard/character-panel/character-panel.html';
-                controller = 'CharacterPanelController';
+            function CharacterPanelDirective(templateUrl, controller) {
+                this.templateUrl = 'src/dashboard/character-panel/character-panel.html';
+                this.controller = 'CharacterPanelController';
             }
             CharacterPanelDirective.Factory = function () {
-                return function ($scope, templateUrl, controller) {
-                    return new CharacterPanelDirective($scope, templateUrl, controller);
+                return function (templateUrl, controller) {
+                    return new CharacterPanelDirective(templateUrl, controller);
                 };
             };
             return CharacterPanelDirective;

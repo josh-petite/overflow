@@ -8,16 +8,19 @@
  **/
 
 module Overflow.Core.Directives {
-    class HorizontalNavDirective {
-        public scope : {};
+    class HorizontalNavDirective implements ng.IDirective {
+        public scope : any;
         public templateUrl : string;
 
         constructor() {
+            this.scope = {};
             this.templateUrl = 'src/core/nav/nav.html';
         }
 
         public static Factory() {
-            return () => { return new HorizontalNavDirective(); };
+            return () => {
+                return new HorizontalNavDirective();
+            };
         }
     }
 

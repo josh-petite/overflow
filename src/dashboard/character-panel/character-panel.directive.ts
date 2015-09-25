@@ -8,15 +8,19 @@
  **/
 
 module Overflow.Dashboard {
-    class CharacterPanelDirective {
-        constructor(public $scope : ng.IScope, public templateUrl : string, public controller : string) {
-            templateUrl = 'src/dashboard/character-panel/character-panel.html';
-            controller = 'CharacterPanelController';
+    class CharacterPanelDirective implements ng.IDirective {
+        public templateUrl : string;
+        public controller : string;
+        public scope : {};
+
+        constructor(templateUrl : string, controller : string) {
+            this.templateUrl = 'src/dashboard/character-panel/character-panel.html';
+            this.controller = 'CharacterPanelController';
         }
 
         public static Factory() {
-            return ($scope : ng.IScope, templateUrl : string, controller : string) => {
-                return new CharacterPanelDirective($scope, templateUrl, controller);
+            return (templateUrl : string, controller : string) => {
+                return new CharacterPanelDirective(templateUrl, controller);
             };
         }
     }
