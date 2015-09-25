@@ -11,11 +11,9 @@
 </head>
 <body>
 
-<div ng-app="overflow">
-    <div class="full-height" ng-controller="MainController as vm">
-        <div nav ng-hide="hideNav"></div>
-        <section class="full-height" ui-view></section>
-    </div>
+<div class="full-height" ng-app="overflow">
+    <div nav></div>
+    <section class="full-height" ui-view></section>
 </div>
 
 <script src="js/lib/jquery.min.js"></script>

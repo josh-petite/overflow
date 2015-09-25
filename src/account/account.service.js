@@ -12,11 +12,11 @@ var Overflow;
     (function (Account) {
         angular.module('overflow.account').factory('AccountService', AccountService);
         var AccountService = (function () {
-            /* @ngInject */
             function AccountService($resource, $q, $log) {
                 this.$resource = $resource;
                 this.$q = $q;
                 this.$log = $log;
+                this.$inject = ['$resource', '$q', '$log'];
                 this.resource = $resource('/api/v1/account/:id', { id: '@id' });
             }
             AccountService.prototype.create = function (newAccount) {

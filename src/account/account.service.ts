@@ -19,7 +19,8 @@ module Overflow.Account {
     class AccountService implements IAccountService {
         private resource:any;
 
-        /* @ngInject */
+        $inject = ['$resource', '$q', '$log'];
+
         constructor(private $resource:ng.resource.IResourceService,
                     private $q:ng.IQService,
                     private $log:ng.ILogService) {

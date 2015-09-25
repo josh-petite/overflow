@@ -18,7 +18,6 @@ module.exports = function() {
         outputTarget: src + '**/*.*',
         source: [
             './src/overflow.module.ts',
-            './src/main.controller.ts',
             './src/core/core.module.ts',
             './src/account/account.module.ts',
             './src/login/login.module.ts',
