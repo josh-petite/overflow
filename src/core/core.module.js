@@ -27,8 +27,8 @@ var Overflow;
         });
         angular.module('overflow.core').run(ValidationConfiguration);
         var ValidationConfiguration = (function () {
-            /* @ngInject */
             function ValidationConfiguration(formlyConfig, formlyValidationMessages) {
+                this.$inject = ['formlyConfig', 'formlyValidationMessages'];
                 var template = '<formly-transclude></formly-transclude>' + '<div class="validation-messages" ng-messages="fc.$error" ng-if="options.formControl.$touched">' + '<div class="message" ng-message="{{::name}}" ng-repeat="(name, message) in ::options.validation.messages">' + '{{message(fc.$viewValue, fc.$modelValue, this)}}' + '</div>' + '</div>';
                 formlyConfig.setWrapper({
                     name: 'validation',

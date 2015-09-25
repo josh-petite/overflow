@@ -9,14 +9,6 @@
  **/
 
 module Overflow.Login {
-    'use strict';
-
-    angular.module('overflow.login', [
-        'overflow.core'
-    ]);
-
-    angular.module('overflow.login')
-        .config(LoginRouteConfiguration);
 
     class LoginRouteConfiguration {
         /* @ngInject */
@@ -31,4 +23,7 @@ module Overflow.Login {
             $urlRouterProvider.otherwise('/');
         }
     }
+
+    angular.module('overflow.login', ['overflow.core'])
+        .config(LoginRouteConfiguration);
 }

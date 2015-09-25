@@ -11,7 +11,6 @@ var Overflow;
     (function (Core) {
         var Directives;
         (function (Directives) {
-            angular.module('overflow.core').directive('nav', HorizontalNavDirective.Factory());
             var HorizontalNavDirective = (function () {
                 function HorizontalNavDirective() {
                     this.templateUrl = 'src/core/nav/nav.html';
@@ -23,6 +22,7 @@ var Overflow;
                 };
                 return HorizontalNavDirective;
             })();
+            angular.module('overflow.core').directive('nav', HorizontalNavDirective.Factory());
         })(Directives = Core.Directives || (Core.Directives = {}));
     })(Core = Overflow.Core || (Overflow.Core = {}));
 })(Overflow || (Overflow = {}));

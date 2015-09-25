@@ -8,8 +8,6 @@
  **/
 
 module Overflow.Dashboard {
-    angular.module('overflow.dashboard')
-        .controller('ChatPanelController', ChatPanelController);
 
     class ChatPanelController {
         public chatMessages : Array<{}>;
@@ -26,4 +24,7 @@ module Overflow.Dashboard {
             this.chatLoading = false; // TODO: investigate chat technologies
         }
     }
+
+    angular.module('overflow.dashboard')
+        .controller('ChatPanelController', ChatPanelController);
 }

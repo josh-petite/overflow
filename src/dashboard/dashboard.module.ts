@@ -9,12 +9,6 @@
  **/
 
 module Overflow.Dashboard {
-    angular.module('overflow.dashboard', [
-        'overflow.core'
-    ]);
-
-    angular.module('overflow.dashboard')
-        .config(DashboardRoutes);
 
     class DashboardRoutes {
         /* @ngInject */
@@ -29,4 +23,7 @@ module Overflow.Dashboard {
             $urlRouterProvider.otherwise('/');
         }
     }
+
+    angular.module('overflow.dashboard', ['overflow.core'])
+        .config(DashboardRoutes);
 }

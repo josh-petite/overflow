@@ -8,12 +8,12 @@
  **/
 
 module Overflow.Dashboard {
-    angular.module('overflow.dashboard')
-        .controller('DashboardController', DashboardController);
 
     class DashboardController {
-        /* @ngInject */
         constructor() {
         }
     }
+
+    angular.module('overflow.dashboard')
+        .controller('DashboardController', DashboardController);
 }

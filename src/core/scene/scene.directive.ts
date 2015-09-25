@@ -13,7 +13,7 @@ module Overflow.Core.Directives {
         target: string;
     }
 
-    class SceneDirective {
+    class SceneDirective implements ng.IDirective {
         public scope : SceneDirectiveScope;
         public templateUrl : string;
         public controller : string;
@@ -26,11 +26,8 @@ module Overflow.Core.Directives {
         }
 
         public static Factory() {
-            return ($scope) => {
+            return ($scope : SceneDirectiveScope) => {
                 var directive = new SceneDirective($scope);
-
-                directive['$inject'] = ['$scope'];
-
                 return directive;
             };
         }

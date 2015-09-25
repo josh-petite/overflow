@@ -10,10 +10,6 @@ var Overflow;
 (function (Overflow) {
     var Dashboard;
     (function (Dashboard) {
-        angular.module('overflow.dashboard', [
-            'overflow.core'
-        ]);
-        angular.module('overflow.dashboard').config(DashboardRoutes);
         var DashboardRoutes = (function () {
             /* @ngInject */
             function DashboardRoutes($stateProvider, $urlRouterProvider) {
@@ -26,6 +22,7 @@ var Overflow;
             }
             return DashboardRoutes;
         })();
+        angular.module('overflow.dashboard', ['overflow.core']).config(DashboardRoutes);
     })(Dashboard = Overflow.Dashboard || (Overflow.Dashboard = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=dashboard.module.js.map

@@ -9,10 +9,6 @@
  **/
 
 module Overflow.Login {
-    'use strict';
-
-    angular.module('overflow.login')
-        .factory('LoginService', LoginService);
 
     export interface ILoginService {
         performLogin(credentials:{}) : ng.IPromise<{}>;
@@ -43,4 +39,7 @@ module Overflow.Login {
             return deferred.promise;
         }
     }
+
+    angular.module('overflow.login')
+        .factory('LoginService', LoginService);
 }

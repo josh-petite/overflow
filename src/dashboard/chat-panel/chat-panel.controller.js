@@ -9,7 +9,6 @@ var Overflow;
 (function (Overflow) {
     var Dashboard;
     (function (Dashboard) {
-        angular.module('overflow.dashboard').controller('ChatPanelController', ChatPanelController);
         var ChatPanelController = (function () {
             function ChatPanelController() {
                 this.chatMessages = [];
@@ -21,6 +20,7 @@ var Overflow;
             };
             return ChatPanelController;
         })();
+        angular.module('overflow.dashboard').controller('ChatPanelController', ChatPanelController);
     })(Dashboard = Overflow.Dashboard || (Overflow.Dashboard = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=chat-panel.controller.js.map

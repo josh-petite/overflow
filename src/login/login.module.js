@@ -10,11 +10,6 @@ var Overflow;
 (function (Overflow) {
     var Login;
     (function (Login) {
-        'use strict';
-        angular.module('overflow.login', [
-            'overflow.core'
-        ]);
-        angular.module('overflow.login').config(LoginRouteConfiguration);
         var LoginRouteConfiguration = (function () {
             /* @ngInject */
             function LoginRouteConfiguration($stateProvider, $urlRouterProvider) {
@@ -27,6 +22,7 @@ var Overflow;
             }
             return LoginRouteConfiguration;
         })();
+        angular.module('overflow.login', ['overflow.core']).config(LoginRouteConfiguration);
     })(Login = Overflow.Login || (Overflow.Login = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=login.module.js.map

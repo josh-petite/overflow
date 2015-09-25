@@ -10,8 +10,6 @@ var Overflow;
 (function (Overflow) {
     var Login;
     (function (Login) {
-        'use strict';
-        angular.module('overflow.login').factory('LoginService', LoginService);
         var LoginService = (function () {
             /* @ngInject */
             function LoginService($resource, $q, $log) {
@@ -33,6 +31,7 @@ var Overflow;
             };
             return LoginService;
         })();
+        angular.module('overflow.login').factory('LoginService', LoginService);
     })(Login = Overflow.Login || (Overflow.Login = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=login.service.js.map

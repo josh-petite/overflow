@@ -9,8 +9,6 @@
  **/
 
 module Overflow.Account {
-    angular.module('overflow.account')
-        .factory('AccountService', AccountService);
 
     export interface IAccountService {
         create(newAccount:{}) : ng.IPromise<{}>;
@@ -46,4 +44,7 @@ module Overflow.Account {
             return deferred.promise;
         }
     }
+
+    angular.module('overflow.account')
+        .factory('AccountService', AccountService);
 }

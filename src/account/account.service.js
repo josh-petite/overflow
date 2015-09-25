@@ -10,7 +10,6 @@ var Overflow;
 (function (Overflow) {
     var Account;
     (function (Account) {
-        angular.module('overflow.account').factory('AccountService', AccountService);
         var AccountService = (function () {
             function AccountService($resource, $q, $log) {
                 this.$resource = $resource;
@@ -33,6 +32,7 @@ var Overflow;
             };
             return AccountService;
         })();
+        angular.module('overflow.account').factory('AccountService', AccountService);
     })(Account = Overflow.Account || (Overflow.Account = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=account.service.js.map

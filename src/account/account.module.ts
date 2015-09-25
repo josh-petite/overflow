@@ -9,13 +9,6 @@
  **/
 
 module Overflow.Account {
-    angular.module('overflow.account', [
-        'overflow.core'
-    ]);
-
-    angular.module('overflow.account')
-        .config(AccountRouteConfiguration);
-
     class AccountRouteConfiguration {
         $inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -30,4 +23,7 @@ module Overflow.Account {
             $urlRouterProvider.otherwise('/');
         }
     }
+
+    angular.module('overflow.account', ['overflow.core'])
+        .config(AccountRouteConfiguration);
 }

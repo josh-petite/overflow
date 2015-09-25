@@ -21,6 +21,11 @@ module Overflow.Core {
         'overflow.templates'
     ]);
 
+    export interface IGameConfig {
+        width: number;
+        height: number;
+    }
+
     angular.module('overflow.core')
         .constant('GameConfig', {
             width: 720,
@@ -31,7 +36,8 @@ module Overflow.Core {
         .run(ValidationConfiguration);
 
     class ValidationConfiguration {
-        /* @ngInject */
+        $inject = ['formlyConfig', 'formlyValidationMessages'];
+
         constructor(formlyConfig:AngularFormly.IFormlyConfig, formlyValidationMessages:AngularFormly.IValidationMessages) {
             var template = '<formly-transclude></formly-transclude>' +
                 '<div class="validation-messages" ng-messages="fc.$error" ng-if="options.formControl.$touched">' +

@@ -12,9 +12,6 @@
 
 module Overflow.Login {
 
-    angular.module('overflow.login')
-        .controller('LoginController', LoginController);
-
     class LoginController {
         public fields : Array<AngularFormly.IFieldConfigurationObject>;
         public model = {};
@@ -78,4 +75,7 @@ module Overflow.Login {
             }
         }
     }
+
+    angular.module('overflow.login')
+        .controller('LoginController', LoginController);
 }

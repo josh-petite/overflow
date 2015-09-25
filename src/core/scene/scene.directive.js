@@ -21,7 +21,6 @@ var Overflow;
                 SceneDirective.Factory = function () {
                     return function ($scope) {
                         var directive = new SceneDirective($scope);
-                        directive['$inject'] = ['$scope'];
                         return directive;
                     };
                 };

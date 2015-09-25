@@ -8,9 +8,6 @@
  **/
 
 module Overflow.Core.Directives {
-    angular.module('overflow.core')
-        .directive('nav', HorizontalNavDirective.Factory());
-
     class HorizontalNavDirective {
         public scope : {};
         public templateUrl : string;
@@ -23,4 +20,7 @@ module Overflow.Core.Directives {
             return () => { return new HorizontalNavDirective(); };
         }
     }
+
+    angular.module('overflow.core')
+        .directive('nav', HorizontalNavDirective.Factory());
 }

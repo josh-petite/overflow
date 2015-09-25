@@ -13,11 +13,11 @@ module Overflow.Core {
         .controller('SceneController', SceneController);
     
     class SceneController {
-        private game : Overflow.Interfaces.PhaserGame;
-        private player : {};
+        private game : Phaser.Game;
+        private player : Phaser.Sprite;
         
-        constructor(private GameConfig: {}) {
-            this.game = new Phaser.Game(GameConfig.width, GameConfig.height, Phaser.AUTO, 'target', {preload: preload, create: create, update: update});
+        constructor(private GameConfig: IGameConfig) {
+            this.game = new Phaser.Game(GameConfig.width, GameConfig.height, Phaser.AUTO, 'target', {preload: this.preload, create: this.create, update: this.update});
         }        
 
         ///////////////////////////////////////////////////////////////////////

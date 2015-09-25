@@ -10,10 +10,6 @@ var Overflow;
 (function (Overflow) {
     var Account;
     (function (Account) {
-        angular.module('overflow.account', [
-            'overflow.core'
-        ]);
-        angular.module('overflow.account').config(AccountRouteConfiguration);
         var AccountRouteConfiguration = (function () {
             function AccountRouteConfiguration($stateProvider, $urlRouterProvider) {
                 this.$inject = ['$stateProvider', '$urlRouterProvider'];
@@ -26,6 +22,7 @@ var Overflow;
             }
             return AccountRouteConfiguration;
         })();
+        angular.module('overflow.account', ['overflow.core']).config(AccountRouteConfiguration);
     })(Account = Overflow.Account || (Overflow.Account = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=account.module.js.map
