@@ -10,16 +10,13 @@ var Overflow;
     var Dashboard;
     (function (Dashboard) {
         var ChatPanelDirective = (function () {
-            function ChatPanelDirective($scope, templateUrl, controller) {
-                this.$scope = $scope;
-                this.templateUrl = templateUrl;
-                this.controller = controller;
-                templateUrl = 'src/dashboard/chat-panel/chat-panel.html';
-                controller = 'ChatPanelController';
+            function ChatPanelDirective() {
+                this.templateUrl = 'src/dashboard/chat-panel/chat-panel.html';
+                this.controller = 'ChatPanelController';
             }
             ChatPanelDirective.Factory = function () {
-                return function ($scope, templateUrl, controller) {
-                    return new ChatPanelDirective($scope, templateUrl, controller);
+                return function () {
+                    return new ChatPanelDirective();
                 };
             };
             return ChatPanelDirective;

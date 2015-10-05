@@ -10,8 +10,6 @@
 
 module Overflow.Account {
     class AccountRouteConfiguration {
-        $inject = ['$stateProvider', '$urlRouterProvider'];
-
         constructor($stateProvider : angular.ui.IStateProvider, $urlRouterProvider : angular.ui.IUrlRouterProvider) {
             $stateProvider
                 .state('createAccount', {
@@ -23,6 +21,8 @@ module Overflow.Account {
             $urlRouterProvider.otherwise('/');
         }
     }
+
+    AccountRouteConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
 
     angular.module('overflow.account', ['overflow.core'])
         .config(AccountRouteConfiguration);

@@ -13,14 +13,14 @@ module Overflow.Dashboard {
         public controller : string;
         public scope : {};
 
-        constructor(templateUrl : string, controller : string) {
+        constructor() {
             this.templateUrl = 'src/dashboard/character-panel/character-panel.html';
             this.controller = 'CharacterPanelController';
         }
 
         public static Factory() {
-            return (templateUrl : string, controller : string) => {
-                return new CharacterPanelDirective(templateUrl, controller);
+            return () => {
+                return new CharacterPanelDirective();
             };
         }
     }

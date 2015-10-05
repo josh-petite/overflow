@@ -12,7 +12,6 @@ var Overflow;
     (function (Account) {
         var AccountRouteConfiguration = (function () {
             function AccountRouteConfiguration($stateProvider, $urlRouterProvider) {
-                this.$inject = ['$stateProvider', '$urlRouterProvider'];
                 $stateProvider.state('createAccount', {
                     url: '/account/create',
                     templateUrl: 'src/account/create.html',
@@ -22,6 +21,7 @@ var Overflow;
             }
             return AccountRouteConfiguration;
         })();
+        AccountRouteConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
         angular.module('overflow.account', ['overflow.core']).config(AccountRouteConfiguration);
     })(Account = Overflow.Account || (Overflow.Account = {}));
 })(Overflow || (Overflow = {}));

@@ -12,16 +12,14 @@ var Overflow;
         var Directives;
         (function (Directives) {
             var SceneDirective = (function () {
-                function SceneDirective($scope) {
-                    this.scope = $scope;
+                function SceneDirective() {
                     this.scope.target = '@';
                     this.templateUrl = 'src/core/scene/scene.html';
                     this.controller = 'SceneController';
                 }
                 SceneDirective.Factory = function () {
-                    return function ($scope) {
-                        var directive = new SceneDirective($scope);
-                        return directive;
+                    return function () {
+                        return new SceneDirective();
                     };
                 };
                 return SceneDirective;

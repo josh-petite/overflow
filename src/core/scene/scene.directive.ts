@@ -9,27 +9,22 @@
 
 module Overflow.Core.Directives {
 
-    interface SceneDirectiveScope extends ng.IScope {
-        target: string;
-    }
-
     class SceneDirective implements ng.IDirective {
-        public scope : SceneDirectiveScope;
+        public scope : {
+            target: string;
+        };
+
         public templateUrl : string;
         public controller : string;
 
-        constructor($scope: SceneDirectiveScope) {
-            this.scope = $scope;
+        constructor() {
             this.scope.target = '@';
             this.templateUrl = 'src/core/scene/scene.html';
             this.controller = 'SceneController';
         }
 
         public static Factory() {
-            return ($scope : SceneDirectiveScope) => {
-                var directive = new SceneDirective($scope);
-                return directive;
-            };
+            return () => { return new SceneDirective(); };
         }
     }
 

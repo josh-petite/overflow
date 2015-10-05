@@ -32,9 +32,6 @@ module Overflow.Core {
             height: 480
         });
 
-    angular.module('overflow.core')
-        .run(ValidationConfiguration);
-
     class ValidationConfiguration {
         $inject = ['formlyConfig', 'formlyValidationMessages'];
 
@@ -55,4 +52,7 @@ module Overflow.Core {
             formlyValidationMessages.addTemplateOptionValueMessage('minlength', 'minlength', '', 'is the minimum length', 'Too short');
         }
     }
+
+    angular.module('overflow.core')
+        .run(ValidationConfiguration);
 }

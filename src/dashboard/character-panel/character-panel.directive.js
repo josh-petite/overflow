@@ -10,13 +10,13 @@ var Overflow;
     var Dashboard;
     (function (Dashboard) {
         var CharacterPanelDirective = (function () {
-            function CharacterPanelDirective(templateUrl, controller) {
+            function CharacterPanelDirective() {
                 this.templateUrl = 'src/dashboard/character-panel/character-panel.html';
                 this.controller = 'CharacterPanelController';
             }
             CharacterPanelDirective.Factory = function () {
-                return function (templateUrl, controller) {
-                    return new CharacterPanelDirective(templateUrl, controller);
+                return function () {
+                    return new CharacterPanelDirective();
                 };
             };
             return CharacterPanelDirective;

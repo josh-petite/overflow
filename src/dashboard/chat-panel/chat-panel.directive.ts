@@ -8,15 +8,19 @@
  **/
 
 module Overflow.Dashboard {
-    class ChatPanelDirective {
-        constructor(public $scope : ng.IScope, public templateUrl : string, public controller : string) {
-            templateUrl = 'src/dashboard/chat-panel/chat-panel.html';
-            controller = 'ChatPanelController';
+    class ChatPanelDirective implements ng.IDirective {
+        public templateUrl : string;
+        public controller : string;
+        public scope : {};
+
+        constructor() {
+            this.templateUrl = 'src/dashboard/chat-panel/chat-panel.html';
+            this.controller = 'ChatPanelController';
         }
 
         public static Factory() {
-            return ($scope : ng.IScope, templateUrl : string, controller : string) => {
-                return new ChatPanelDirective($scope, templateUrl, controller);
+            return () => {
+                return new ChatPanelDirective();
             };
         }
     }

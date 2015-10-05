@@ -25,7 +25,6 @@ var Overflow;
             width: 720,
             height: 480
         });
-        angular.module('overflow.core').run(ValidationConfiguration);
         var ValidationConfiguration = (function () {
             function ValidationConfiguration(formlyConfig, formlyValidationMessages) {
                 this.$inject = ['formlyConfig', 'formlyValidationMessages'];
@@ -40,6 +39,7 @@ var Overflow;
             }
             return ValidationConfiguration;
         })();
+        angular.module('overflow.core').run(ValidationConfiguration);
     })(Core = Overflow.Core || (Overflow.Core = {}));
 })(Overflow || (Overflow = {}));
 //# sourceMappingURL=core.module.js.map

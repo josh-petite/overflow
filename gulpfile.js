@@ -40,6 +40,9 @@
             .src(config.source)
             .pipe($.typescript({
                 noImplicitAny: true,
+                removeComments: true,
+                target: 'ES5',
+                sortOutput: true,
                 out: 'app.js'
             }));
 
@@ -58,7 +61,7 @@
             ext: 'js html less',
             ignore: ['node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
             env: {'NODE_ENV': 'development'},
-            tasks: ['styles', 'compile', 'templates', 'libraries']
+            tasks: ['styles', 'compile', 'templates']
         });
     });
 
