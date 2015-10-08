@@ -11,10 +11,10 @@
     angular.module('overflow.account')
         .controller('CreateAccountController', createAccountController);
 
-    function createAccountController($rootScope, AccountService, NotificationService) {
+    /* @ngInject */
+    function createAccountController(AccountService, NotificationService) {
         /*jshint validthis: true */
         var vm = this;
-        vm.fields = [];
         vm.model = {};
         vm.options = {};
 
@@ -23,12 +23,9 @@
         activate();
 
         function activate() {
-            constructFields();
-            $rootScope.hideNav = true;
-            vm.originalFields = angular.copy(vm.fields);
+            vm.originalFields = angular.copy(this.fields);
+            vm.constructFields();
         }
-
-        /////////////////////////////////////////////////////////////////////////////
 
         function constructFields() {
             vm.fields = [
