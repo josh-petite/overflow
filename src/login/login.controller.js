@@ -1,37 +1,29 @@
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="login.service.ts" />
+/// <reference path="../core/services/notification.service.ts" />
+/// <reference path="../core/interfaces/angular-formly-field.ts" />
 /**
  * @ngdoc controller
  * @name LoginController
  * @module overflow.login
  * @description Primary login controller
  **/
-
-(function() {
+var Overflow;
+(function (Overflow) {
     'use strict';
-
-    angular.module('overflow.login')
-        .controller('LoginController', loginController);
-
-    /* @ngInject */
-    function loginController($rootScope, LoginService, NotificationService) {
-        /*jshint validthis: true */
-        var vm = this;
-        vm.fields = [];
-        vm.model = {};
-        vm.options = {};
-
-        vm.performLogin = performLogin;
-
-        activate();
-
-        function activate() {
-            constructFields();
-            $rootScope.hideNav = true;
+    angular.module('overflow.login').controller('LoginController', LoginController);
+    var LoginController = (function () {
+        /* @ngInject */
+        function LoginController(LoginService, NotificationService) {
+            this.LoginService = LoginService;
+            this.NotificationService = NotificationService;
+            this.fields = Array();
+            this.model = {};
+            this.options = {};
+            this.constructFields();
         }
-
-        ///////////////////////////////////////////////////////////////////////
-
-        function constructFields() {
-            vm.fields = [
+        LoginController.prototype.constructFields = function () {
+            this.fields = [
                 {
                     key: 'username',
                     type: 'input',
@@ -43,7 +35,7 @@
                         required: true
                     },
                     validators: {
-                        email: function($viewValue, $modelValue) {
+                        email: function ($viewValue, $modelValue) {
                             var value = $modelValue || $viewValue;
                             var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
                             return re.test(value);
@@ -68,19 +60,18 @@
                     }
                 }
             ];
-        }
-
-        function performLogin() {
-            var promise = LoginService.performLogin(vm.model);
+        };
+        LoginController.prototype.performLogin = function () {
+            var promise = this.LoginService.performLogin(this.model);
             promise.then(loginSuccessful, loginFailed);
-
             function loginSuccessful() {
-                NotificationService.success('Login successful!');
+                this.NotificationService.success('Login successful!');
             }
-
             function loginFailed(error) {
-                NotificationService.error(error);
+                this.NotificationService.error(error);
             }
-        }
-    }
-})();
+        };
+        return LoginController;
+    })();
+})(Overflow || (Overflow = {}));
+//# sourceMappingURL=login.controller.js.map

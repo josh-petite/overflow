@@ -11,9 +11,9 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.post('/', passport.authenticate('local', {
+    successRedirect: '/',
     failureRedirect: '/login',
-    successRedirect: '/'
+    failureFlash: true
 }));
-
 
 module.exports = router;

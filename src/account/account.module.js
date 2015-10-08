@@ -1,29 +1,28 @@
+/// <reference path="../../typings/angularjs/angular.d.ts" />
+/// <reference path="../../typings/angular-ui-router/angular-ui-router.d.ts" />
 /**
  * @ngdoc module
  * @name overflow.account
  * @module overflow.account
  * @description Module for handling user interaction with account creation and management
  **/
-
-(function() {
-    'use strict';
-
-    angular.module('overflow.account', [
-        'overflow.core'
-    ]);
-
-    angular.module('overflow.account')
-        .config(accountRoutes);
-
-    /* @ngInject */
-    function accountRoutes($stateProvider, $urlRouterProvider) {
-        $stateProvider
-            .state('createAccount', {
-                url: '/account/create',
-                templateUrl: 'src/account/create.html',
-                controller: 'CreateAccountController as vm'
-            });
-
-        $urlRouterProvider.otherwise('/');
-    }
-})();
+var Overflow;
+(function (Overflow) {
+    var Account;
+    (function (Account) {
+        var AccountRouteConfiguration = (function () {
+            function AccountRouteConfiguration($stateProvider, $urlRouterProvider) {
+                $stateProvider.state('createAccount', {
+                    url: '/account/create',
+                    templateUrl: 'src/account/create.html',
+                    controller: 'CreateAccountController as vm'
+                });
+                $urlRouterProvider.otherwise('/');
+            }
+            return AccountRouteConfiguration;
+        })();
+        AccountRouteConfiguration.$inject = ['$stateProvider', '$urlRouterProvider'];
+        angular.module('overflow.account', ['overflow.core']).config(AccountRouteConfiguration);
+    })(Account = Overflow.Account || (Overflow.Account = {}));
+})(Overflow || (Overflow = {}));
+//# sourceMappingURL=account.module.js.map

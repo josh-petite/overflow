@@ -11,3 +11,4 @@ public/styles
 public/fonts
 *.orig
 src/**/*.css
+typings
