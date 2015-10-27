@@ -1,29 +1,33 @@
-/// <reference path="../../typings/angularjs/angular.d.ts" />
-/// <reference path="login.service.ts" />
-/// <reference path="../core/services/notification.service.ts" />
-/// <reference path="../core/interfaces/angular-formly-field.ts" />
 /**
  * @ngdoc controller
  * @name LoginController
  * @module overflow.login
  * @description Primary login controller
  **/
-var Overflow;
-(function (Overflow) {
+
+(function() {
     'use strict';
-    angular.module('overflow.login').controller('LoginController', LoginController);
-    var LoginController = (function () {
-        /* @ngInject */
-        function LoginController(LoginService, NotificationService) {
-            this.LoginService = LoginService;
-            this.NotificationService = NotificationService;
-            this.fields = Array();
-            this.model = {};
-            this.options = {};
-            this.constructFields();
+
+    angular.module('overflow.login')
+        .controller('LoginController', loginController);
+
+    /* @ngInject */
+    function loginController(LoginService, NotificationService) {
+        var vm = this;
+        vm.fields = [];
+        vm.model = {};
+        vm.options = {};
+
+        activate();
+
+        function activate() {
+            constructFields();
         }
-        LoginController.prototype.constructFields = function () {
-            this.fields = [
+
+        ///////////////////////////////////////////////////////////////////////
+
+        function constructFields() {
+            vm.fields = [
                 {
                     key: 'username',
                     type: 'input',
@@ -60,18 +64,17 @@ var Overflow;
                     }
                 }
             ];
-        };
-        LoginController.prototype.performLogin = function () {
-            var promise = this.LoginService.performLogin(this.model);
+        }
+
+        function performLogin() {
+            var promise = LoginService.performLogin(vm.model);
             promise.then(loginSuccessful, loginFailed);
             function loginSuccessful() {
-                this.NotificationService.success('Login successful!');
+                NotificationService.success('Login successful!');
             }
             function loginFailed(error) {
-                this.NotificationService.error(error);
+                NotificationService.error(error);
             }
-        };
-        return LoginController;
-    })();
-})(Overflow || (Overflow = {}));
-//# sourceMappingURL=login.controller.js.map
+        }
+    }
+})();

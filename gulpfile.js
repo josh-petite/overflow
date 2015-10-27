@@ -57,7 +57,7 @@
             ext: 'js html less',
             ignore: ['node_modules/**/*.js', 'bower_components/**/*.js', 'public/js/**/*.js'],
             env: {'NODE_ENV': 'development'},
-            tasks: ['styles', 'compile', 'templates', 'libraries', 'vet']
+            tasks: ['styles', 'compile', 'templates', 'libraries']
         });
     });
 

@@ -1,31 +1,23 @@
-/// <reference path="../../../typings/angularjs/angular.d.ts" />
 /**
  * @ngdoc directive
  * @name scene
  * @module overflow.core
  * @description Directive to encapsulate the main game canvas
  **/
-var Overflow;
-(function (Overflow) {
-    var Core;
-    (function (Core) {
-        var Directives;
-        (function (Directives) {
-            var SceneDirective = (function () {
-                function SceneDirective() {
-                    this.scope.target = '@';
-                    this.templateUrl = 'src/core/scene/scene.html';
-                    this.controller = 'SceneController';
-                }
-                SceneDirective.Factory = function () {
-                    return function () {
-                        return new SceneDirective();
-                    };
-                };
-                return SceneDirective;
-            })();
-            angular.module('overflow.core').directive('scene', SceneDirective.Factory());
-        })(Directives = Core.Directives || (Core.Directives = {}));
-    })(Core = Overflow.Core || (Overflow.Core = {}));
-})(Overflow || (Overflow = {}));
-//# sourceMappingURL=scene.directive.js.map
+
+(function() {
+    'use strict';
+
+    angular.module('overflow.core')
+        .directive('scene', scene);
+
+    function scene() {
+        return {
+            scope: {
+                target: '@'
+            },
+            templateUrl: 'src/core/scene/scene.html',
+            controller: 'SceneController'
+        };
+    }
+})();
