@@ -1,12 +1,12 @@
 <div class="login-container form-default col-md-4 col-md-offset-4" ng-cloak>
-    <form name="loginForm" ng-submit="performLogin()" novalidate>
+    <form name="loginForm" ng-submit="vm.performLogin()" novalidate>
         <h2>Login</h2>
 
-        <formly-form model="model" fields="fields" options="options">
+        <formly-form model="vm.model" fields="vm.fields" options="vm.options">
             <button type="button"
                     class="btn btn-primary"
-                    ng-disabled="loginForm.$invalid"
-                    ng-click="performLogin()">
+                    ng-disabled="vm.loginForm.$invalid"
+                    ng-click="vm.performLogin()">
                 Login
             </button>
         </formly-form>

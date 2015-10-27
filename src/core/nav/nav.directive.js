@@ -8,10 +8,12 @@
 (function() {
     'use strict';
 
-    angular.module('overflow.core').directive('nav', nav);
+    angular.module('overflow.core')
+        .directive('navigationBar', nav);
 
     function nav() {
         return {
+            restrict: 'EA',
             scope: {},
             templateUrl: 'src/core/nav/nav.html'
         }
