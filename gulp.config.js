@@ -56,7 +56,8 @@ module.exports = function() {
             './bower_components/angular-messages/angular-messages.min.js',
             './bower_components/angular-messages/angular-messages.min.js.map',
             './bower_components/phaser/build/phaser.min.js',
-            './bower_components/phaser/build/phaser.map'
+            './bower_components/phaser/build/phaser.map',
+            './bower_components/underscore/underscore-min.js'
         ]
     };
 

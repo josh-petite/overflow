@@ -10,11 +10,14 @@
 
     angular.module('overflow.dashboard').controller('ChatPanelController', chatPanelController);
 
-    function chatPanelController() {
+    function chatPanelController($firebaseArray) {
         /*jshint validthis: true */
         var vm = this;
+        vm.firebaseUrl = 'https://popping-torch-8747.firebaseio.com/';
         vm.chatMessages = [];
         vm.chatLoading = true;
+
+        vm.submitChatMessage = submitChatMessage;
 
         activate();
 
@@ -25,7 +28,19 @@
         ///////////////////////////////////////////////////////////////////////
 
         function loadRecentChat() {
-            vm.chatLoading = false; // TODO: implement all the chats
+            var ref = new Firebase(vm.firebaseUrl);
+            vm.chatMessages = $firebaseArray(ref.child('/chat'));
+            vm.chatLoading = false;
+        }
+
+        function submitChatMessage(message) {
+            var chatMessage = {
+                handle: 'Josh',
+                text: message
+            };
+
+            vm.chatMessages.$add(chatMessage);
+            vm.currentMessage = '';
         }
     }
 })();

@@ -17,7 +17,8 @@
         'ui.router',
         'formly',
         'formlyBootstrap',
-        'overflow.templates'
+        'overflow.templates',
+        'firebase'
     ]);
 
     angular.module('overflow.core').constant('GameConfig', {
