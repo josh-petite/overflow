@@ -3,15 +3,15 @@ module.exports = function() {
 
     var src = './public/';
 
-    var config = {
-        fonts: './bower_components/fontawesome/fonts/*.*',
+    return {
+        fonts: './node_modules/fontawesome/fonts/*.*',
         styleDestination: src + 'styles/',
         styleLibraries: [
-            './bower_components/bootstrap/dist/css/bootstrap.css',
-            './bower_components/bootstrap/dist/css/bootstrap.css.map',
-            './bower_components/angular-toastr/dist/angular-toastr.min.css',
-            './bower_components/spinkit/css/spinners/7-three-bounce.css',
-            './bower_components/fontawesome/css/font-awesome.min.css'
+            './node_modules/bootstrap/dist/css/bootstrap.css',
+            './node_modules/bootstrap/dist/css/bootstrap.css.map',
+            './node_modules/angular-toastr/dist/angular-toastr.min.css',
+            './node_modules/spinkit/css/spinners/7-three-bounce.css',
+            './node_modules/fontawesome/css/font-awesome.min.css'
         ],
         jsTarget: src + 'js/*.*',
         styleTarget: src + 'styles/*.*',
@@ -33,33 +33,31 @@ module.exports = function() {
         less: './src/**/*.less',
         libraryDestination: src + 'js/lib/',
         libraries: [
-            './bower_components/jquery/dist/jquery.js',
-            './bower_components/jquery/dist/jquery.min.js',
-            './bower_components/jquery/dist/jquery.min.map',
-            './bower_components/bootstrap/dist/js/bootstrap.min.js',
-            './bower_components/angular/angular.min.js',
-            './bower_components/angular/angular.min.js.map',
-            './bower_components/angular-resource/angular-resource.js',
-            './bower_components/angular-resource/angular-resource.min.js',
-            './bower_components/angular-resource/angular-resource.min.js.map',
-            './bower_components/angular-ui-router/release/angular-ui-router.min.js',
-            './bower_components/angular-animate/angular-animate.js',
-            './bower_components/angular-animate/angular-animate.min.js',
-            './bower_components/angular-animate/angular-animate.min.js.map',
-            './bower_components/angular-toastr/dist/angular-toastr.tpls.js',
-            './bower_components/api-check/dist/api-check.min.js',
-            './bower_components/api-check/dist/api-check.min.js.map',
-            './bower_components/angular-formly/dist/formly.min.js',
-            './bower_components/angular-formly/dist/formly.min.js.map',
-            './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
-            './bower_components/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js.map',
-            './bower_components/angular-messages/angular-messages.min.js',
-            './bower_components/angular-messages/angular-messages.min.js.map',
-            './bower_components/phaser/build/phaser.min.js',
-            './bower_components/phaser/build/phaser.map',
+            './node_modules/jquery/dist/jquery.js',
+            './node_modules/jquery/dist/jquery.min.js',
+            './node_modules/jquery/dist/jquery.min.map',
+            './node_modules/bootstrap/dist/js/bootstrap.min.js',
+            './node_modules/angular/angular.min.js',
+            './node_modules/angular/angular.min.js.map',
+            './node_modules/angular-resource/angular-resource.js',
+            './node_modules/angular-resource/angular-resource.min.js',
+            './node_modules/angular-resource/angular-resource.min.js.map',
+            './node_modules/angular-ui-router/release/angular-ui-router.min.js',
+            './node_modules/angular-animate/angular-animate.js',
+            './node_modules/angular-animate/angular-animate.min.js',
+            './node_modules/angular-animate/angular-animate.min.js.map',
+            './node_modules/angular-toastr/dist/angular-toastr.tpls.js',
+            './node_modules/api-check/dist/api-check.min.js',
+            './node_modules/api-check/dist/api-check.min.js.map',
+            './node_modules/angular-formly/dist/formly.min.js',
+            './node_modules/angular-formly/dist/formly.min.js.map',
+            './node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
+            './node_modules/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js.map',
+            './node_modules/angular-messages/angular-messages.min.js',
+            './node_modules/angular-messages/angular-messages.min.js.map',
+            './node_modules/phaser/build/phaser.min.js',
+            './node_modules/phaser/build/phaser.map',
             './node_modules/underscore/underscore-min.js'
         ]
     };
-
-    return config;
 };
