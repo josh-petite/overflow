@@ -21,9 +21,28 @@
         'firebase'
     ]);
 
+    angular.module('overflow.core')
+        .config(coreConfiguration);
+
+    /* @ngInject */
+    function coreConfiguration($stateProvider) {
+        $stateProvider.state('site', {
+            'abstract': true,
+            resolve: {
+                authorize: function(AuthorizationService) {
+                    return AuthorizationService.authorize();
+                }
+            }
+        })
+    }
+
     angular.module('overflow.core').constant('GameConfig', {
         width: 720,
         height: 480
+    });
+
+    angular.module('overflow.core').constant('FirebaseConfig', {
+        url: 'https://popping-torch-8747.firebaseio.com/'
     });
 
     angular.module('overflow.core').run(validationConfiguration);

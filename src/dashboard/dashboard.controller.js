@@ -12,30 +12,27 @@
         .controller('DashboardController', dashboardController);
 
     /* @ngInject */
-    function dashboardController() {
+    function dashboardController(FirebaseConfig) {
         var vm = this;
 
-        vm.addItemToArray = addItemToArray;
+        vm.login = login;
 
         activate();
 
         function activate() {
-            getFirebaseData();
         }
 
         ///////////////////////////////////////////////////////////////////////
 
-        function addItemToArray() {
-            //var ref = new Firebase(vm.firebaseUrl);
-            //var childRef = ref.child('test');
-            //
-            //var newItem = childRef.push();
-            //newItem.set("test");
-
-        }
-
-        function getFirebaseData() {
-
+        function login() {
+            var ref = new Firebase(FirebaseConfig.url);
+            ref.authWithOAuthPopup("google", function(error, authData) {
+                if (error) {
+                    console.log("Login Failed!", error);
+                } else {
+                    console.log("Authenticated successfully with payload:", authData);
+                }
+            });
         }
     }
 })();
